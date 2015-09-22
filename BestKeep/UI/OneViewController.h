@@ -14,11 +14,7 @@
 
 @interface OneViewController : BaseViewController<UIWebViewDelegate>{
     UIWebView *_webView;
-//    UIButton *letButton;
-//    NJKWebViewProgressView *_progressView;
-//    NJKWebViewProgress *_progressProxy;
-//    float press;
-//    BOOL isLoad;
+
 }
 
 @property (nonatomic,strong)NSString *oneUrl;
