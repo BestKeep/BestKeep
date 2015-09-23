@@ -83,14 +83,16 @@
 //退出注销
 -(void)outBtnTouched{
     [PassportService logout];
-    if ([[Userinfo getUserTGT] isEqualToString:@""] ) {
-        LoginController *lvc =[[LoginController alloc]init];
-        BKNavigationController *bknav =[[BKNavigationController alloc]initWithRootViewController:lvc];
-        [self.navigationController presentViewController:bknav animated:YES completion:^{
-            
-        }];
-        
-    }}
+    [self.navigationController popViewControllerAnimated:YES];
+//    if ([[Userinfo getUserTGT] isEqualToString:@""] ) {
+//        LoginController *lvc =[[LoginController alloc]init];
+//        BKNavigationController *bknav =[[BKNavigationController alloc]initWithRootViewController:lvc];
+//        [self.navigationController presentViewController:bknav animated:YES completion:^{
+//            
+//        }];
+//        
+//    }
+}
 -(UITableView *)settingTableView{
     if (_settingTableView == nil) {
         _settingTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];

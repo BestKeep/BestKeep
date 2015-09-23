@@ -30,6 +30,8 @@
 #import "UserInfoModel.h"
 #import "AppDelegate.h"
 
+#import "MBProgressHUD.h"
+
 #define  IMAGE_AUTORESIZINGMASK  UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight
 #define IMAGE_CONTENTMODE UIViewContentModeScaleAspectFill
 #define DEVICE_IS_IPHONR5 ([[UIScreen mainScreen] bounds].size.height == 568)
@@ -351,6 +353,11 @@ alpha:1.0]
     NSString *udid = [Common createUDID];
     [Userinfo setUserCellPhoneUDID:udid];
     
+
+    
+    MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [hud setLabelText:@"正在加载"];
+    
     NSString *token = [Userinfo getUserDevicetoken];
     
     if (token == nil) {
@@ -359,6 +366,8 @@ alpha:1.0]
     
     NSString *app_Version = [Common getAppVersion];
     NSString *time = [MD5 getSystemTime];
+    
+
     
     //原始参数表->用于生成sign
     NSDictionary *dicOrginalParameters = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -388,39 +397,50 @@ alpha:1.0]
     
     __weak typeof(self) wSelf = self;
     //请求
-    [PassportService login:self.view :dicParameters :^(id obj,NSError * error) {
+    [PassportService login:nil :dicParameters :^(id obj,NSError * error) {
         
-        self.loginResult =(Result *) obj;
-        
-        NSString *LoginMessage = self.loginResult.msg;
-        
-        if (wSelf.loginResult.success == 1) {
-            
-            
-            [Userinfo setLoginSatuts:@"1"];
-            
-            [Userinfo setPWD:password];
-            
-            [Userinfo setCellPhone:userNumber.text];
-            
-            [self updateUserInfo];
-            
-            //            [CacheFile WriteToFile];
-            
-            NSLog(@"登录成功");
-            
-        }else{
+        if (error) {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+
             canLogin = YES;
+            [ShowMessage showMessage:@"登录失败" withCenter:self.view.center];
+        }else{
+            self.loginResult =(Result *) obj;
             
-            [Common AlertViewTitle:@"提示"
-                           message:LoginMessage
-                          delegate:self
-                 cancelButtonTitle:@"确定"
-                 otherButtonTitles:nil];
-            userPassword.text = @"";
             
-            NSLog(@"登录结果为:%@",self.loginResult.msg);
+            NSString *LoginMessage = self.loginResult.msg;
+            
+            if (wSelf.loginResult.success == 1) {
+                
+                
+                [Userinfo setLoginSatuts:@"1"];
+                
+                [Userinfo setPWD:password];
+                
+                [Userinfo setCellPhone:userNumber.text];
+                
+                [self updateUserInfo];
+                
+                //            [CacheFile WriteToFile];
+                
+                NSLog(@"登录成功");
+                
+            }else{
+                canLogin = YES;
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                
+                [Common AlertViewTitle:@"提示"
+                               message:LoginMessage
+                              delegate:self
+                     cancelButtonTitle:@"确定"
+                     otherButtonTitles:nil];
+                userPassword.text = @"";
+                
+                NSLog(@"登录结果为:%@",self.loginResult.msg);
+            }
+
         }
+        
     }];
 }
 -(void)updateUserInfo{
@@ -428,9 +448,10 @@ alpha:1.0]
     if([[Userinfo getLoginSatuts]isEqualToString:@"1"]){
         //获取请求参数头
         
-        
         //获取ST之后请求用户基本信息
         [PassportService getUserInfoWithHeadParams:nil bodyParams:nil callBack:^(UserInfoModel *userInfo, NSError *error) {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+
             if (error) {
                 NSLog(@"调取信息失败");
                 canLogin = YES;

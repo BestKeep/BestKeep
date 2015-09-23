@@ -164,6 +164,7 @@
                                     
                                       
                                   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                      callback(nil,error);
                                       
                                       NSLog(@"获取TGT失败了");
                                       //调用失败的方法在这里添加
