@@ -15,6 +15,7 @@
 //#import "DatabaseCache.h"
 @class UserInfoModel;
 
+typedef void (^Compeletion)(id obj,NSError * error);
 
 @interface PassportService : NSObject
 
@@ -26,7 +27,7 @@ typedef void (^MyCallback)(id obj);
 //登录
 +(void)login:(UIView *)view
             :(NSDictionary *) parameters
-            :(MyCallback)callback;
+            :(Compeletion)callback;
 
 +(void)logout;
 

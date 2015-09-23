@@ -92,7 +92,7 @@
 //登录
 +(void)login:(UIView *)view
             :(NSDictionary *) parameters
-            :(MyCallback)callback
+            :(Compeletion)callback
 {
     Result *loginResult = [Result alloc];
     
@@ -134,10 +134,10 @@
                                               
                                               [Userinfo setST:st];
                                               
-                                              callback(loginResult);
+                                              callback(loginResult,nil);
                                               
                                           } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                              
+                                              callback(nil,error);
                                           }];
                                       }else{
                                           loginResult.success = NO;
@@ -155,7 +155,7 @@
                                           }
                                           
                                           
-                                          callback(loginResult);
+                                          callback(loginResult,nil);
                                           
                                       }
                                       
@@ -185,7 +185,7 @@
                 
                 loginResult.msg = @"登录成功";
                 
-                callback(loginResult);
+                callback(loginResult,nil);
                 
                 NSLog(@"重新获取ST");
                 
@@ -197,7 +197,7 @@
                 
                 loginResult.msg = @"重新获取ST令牌失败,请再次尝试登录";
                 
-                callback(loginResult);
+                callback(loginResult,nil);
                 
                 NSLog(@"重新获取ST失败");
                 
@@ -209,7 +209,7 @@
             
             loginResult.msg = @"登录成功";
             
-            callback(loginResult);
+            callback(loginResult,nil);
         }
     }
     
