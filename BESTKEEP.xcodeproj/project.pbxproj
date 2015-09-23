@@ -117,11 +117,11 @@
 		67C4ACD51BABB448000073D2 /* AllOrderHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C4ACD41BABB448000073D2 /* AllOrderHeaderView.m */; settings = {ASSET_TAGS = (); }; };
 		67C4ACD81BABB4EF000073D2 /* OrderInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C4ACD71BABB4EF000073D2 /* OrderInfo.m */; settings = {ASSET_TAGS = (); }; };
 		67D38DE81BB2402E004A2DBF /* PassportService.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D38DE71BB2402E004A2DBF /* PassportService.m */; settings = {ASSET_TAGS = (); }; };
+		67D38DEB1BB283C4004A2DBF /* InterfaceURLs.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D38DEA1BB283C4004A2DBF /* InterfaceURLs.m */; settings = {ASSET_TAGS = (); }; };
 		67F3654A1BB155390042BBC9 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F365491BB155390042BBC9 /* UserInfoViewController.m */; settings = {ASSET_TAGS = (); }; };
 		B3AFD3261B841C610001172E /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AFD3251B841C610001172E /* LoginController.m */; };
 		B3AFD3291B841C8A0001172E /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AFD3281B841C8A0001172E /* HomeViewController.m */; };
 		B3AFD32C1B841CE10001172E /* Userinfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AFD32B1B841CE10001172E /* Userinfo.m */; };
-		B3AFD3301B841D210001172E /* InterfaceURLs.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AFD32F1B841D210001172E /* InterfaceURLs.m */; };
 		B3AFD3331B841D520001172E /* CacheFile.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AFD3321B841D520001172E /* CacheFile.m */; };
 		B3AFD3371B841DC00001172E /* HCRKeyChain.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AFD3361B841DC00001172E /* HCRKeyChain.m */; };
 		B3AFD3401B841E650001172E /* KVPO.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AFD33D1B841E650001172E /* KVPO.m */; };
@@ -537,6 +537,8 @@
 		67C4ACD71BABB4EF000073D2 /* OrderInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderInfo.m; sourceTree = "<group>"; };
 		67D38DE61BB2402E004A2DBF /* PassportService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PassportService.h; path = BestKeep/Service/PassportService.h; sourceTree = SOURCE_ROOT; };
 		67D38DE71BB2402E004A2DBF /* PassportService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PassportService.m; path = BestKeep/Service/PassportService.m; sourceTree = SOURCE_ROOT; };
+		67D38DE91BB283C4004A2DBF /* InterfaceURLs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InterfaceURLs.h; path = BestKeep/Common/InterfaceURLs.h; sourceTree = SOURCE_ROOT; };
+		67D38DEA1BB283C4004A2DBF /* InterfaceURLs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InterfaceURLs.m; path = BestKeep/Common/InterfaceURLs.m; sourceTree = SOURCE_ROOT; };
 		67F365481BB155390042BBC9 /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
 		67F365491BB155390042BBC9 /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
 		B3AFD3241B841C610001172E /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginController.h; path = UI/LoginController.h; sourceTree = "<group>"; };
@@ -545,8 +547,6 @@
 		B3AFD3281B841C8A0001172E /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = UI/HomeViewController.m; sourceTree = "<group>"; };
 		B3AFD32A1B841CE10001172E /* Userinfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Userinfo.h; path = Entity/Userinfo.h; sourceTree = "<group>"; };
 		B3AFD32B1B841CE10001172E /* Userinfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Userinfo.m; path = Entity/Userinfo.m; sourceTree = "<group>"; };
-		B3AFD32E1B841D210001172E /* InterfaceURLs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterfaceURLs.h; sourceTree = "<group>"; };
-		B3AFD32F1B841D210001172E /* InterfaceURLs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterfaceURLs.m; sourceTree = "<group>"; };
 		B3AFD3311B841D520001172E /* CacheFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CacheFile.h; path = Utility/CacheFile.h; sourceTree = "<group>"; };
 		B3AFD3321B841D520001172E /* CacheFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CacheFile.m; path = Utility/CacheFile.m; sourceTree = "<group>"; };
 		B3AFD3351B841DC00001172E /* HCRKeyChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCRKeyChain.h; sourceTree = "<group>"; };
@@ -1424,8 +1424,8 @@
 		B3AFD32D1B841D210001172E /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				B3AFD32E1B841D210001172E /* InterfaceURLs.h */,
-				B3AFD32F1B841D210001172E /* InterfaceURLs.m */,
+				67D38DE91BB283C4004A2DBF /* InterfaceURLs.h */,
+				67D38DEA1BB283C4004A2DBF /* InterfaceURLs.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -2136,8 +2136,8 @@
 				EA6E24011B91D7F2002031D1 /* MySaveViewController.m in Sources */,
 				B3AFD39E1B8422DC0001172E /* SBJsonStreamWriter.m in Sources */,
 				EA55512B1B9588B10096E82D /* UIScrollView+MJRefresh.m in Sources */,
+				67D38DEB1BB283C4004A2DBF /* InterfaceURLs.m in Sources */,
 				B3AFD3291B841C8A0001172E /* HomeViewController.m in Sources */,
-				B3AFD3301B841D210001172E /* InterfaceURLs.m in Sources */,
 				05FEADAF1B9D51F90001617B /* DeliverAddress.m in Sources */,
 				B3AFD3CA1B8470970001172E /* RegisterButton.m in Sources */,
 				6767441F1B8EB592007C2832 /* OneCell.m in Sources */,
