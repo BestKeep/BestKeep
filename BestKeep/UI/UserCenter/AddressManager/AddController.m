@@ -80,7 +80,8 @@
     [self code];
     self.title = @"编辑收货地址";
     self.view.backgroundColor = [UIColor colorWithString:@"#eeeeee"];
-    isFlag = YES;
+    isFlag = self.address.isDefaultAddress;
+    
     province_code_array = [NSMutableArray array];
     province_name_array = [NSMutableArray array];
     city_code_array = [NSMutableArray array];
@@ -366,11 +367,14 @@
             cell.textLabel.textColor = COLOR_05;
             cell.textLabel.font = [UIFont boldSystemFontOfSize:16];
             cell.backgroundColor = [UIColor whiteColor];
-            if ([_address.deliverIsDefault isEqualToString:@"1"]) {
-                [switchBut setOn:YES];
-            }else{
-                [switchBut setOn:NO];
-            }
+
+            [switchBut setOn:isFlag];
+            
+            //            if ([_address.deliverIsDefault isEqualToString:@"1"]) {
+//                [switchBut setOn:YES];
+//            }else{
+//                [switchBut setOn:NO];
+//            }
             
             [switchBut addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
             [cell.contentView addSubview:switchBut];
@@ -405,13 +409,14 @@
 
 -(void)switchAction:(id)sender{
     UISwitch *switchButton = (UISwitch*)sender;
-    if ([[AddSet getAddIsDefaulit]isEqualToString:@"1" ]) {
-        isFlag = YES;
-        NSLog(@"默认");
-    }else {
-        isFlag =NO;
-        NSLog(@"非默认");
-    }
+    isFlag = switchButton.on;
+//    if ([[AddSet getAddIsDefaulit]isEqualToString:@"1" ]) {
+//        isFlag = YES;
+//        NSLog(@"默认");
+//    }else {
+//        isFlag =NO;
+//        NSLog(@"非默认");
+//    }
     
 }
 

@@ -70,6 +70,7 @@
      addressid_array = [NSMutableArray new];
 }
 -(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
     isFirst = YES;
     [self deliverAddressList];
     cell_number= 0;

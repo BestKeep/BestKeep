@@ -394,14 +394,15 @@
 
 -(void)switchAction:(id)sender{
     UISwitch *switchButton = (UISwitch*)sender;
-    BOOL isButtonOn = [switchButton isOn];
-    if (isButtonOn) {
-        isFlag = YES;
-        NSLog(@"默认");
-    }else {
-        isFlag =NO;
-        NSLog(@"非默认");
-    }
+    isFlag = switchButton.isOn;
+//    BOOL isButtonOn = [switchButton isOn];
+//    if (isButtonOn) {
+//        isFlag = YES;
+//        NSLog(@"默认");
+//    }else {
+//        isFlag =NO;
+//        NSLog(@"非默认");
+//    }
     
 }
 
