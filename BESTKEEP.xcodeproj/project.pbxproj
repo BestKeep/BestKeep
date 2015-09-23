@@ -116,6 +116,7 @@
 		67C4ACD21BABB42F000073D2 /* AllOrderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C4ACD11BABB42F000073D2 /* AllOrderFooterView.m */; settings = {ASSET_TAGS = (); }; };
 		67C4ACD51BABB448000073D2 /* AllOrderHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C4ACD41BABB448000073D2 /* AllOrderHeaderView.m */; settings = {ASSET_TAGS = (); }; };
 		67C4ACD81BABB4EF000073D2 /* OrderInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C4ACD71BABB4EF000073D2 /* OrderInfo.m */; settings = {ASSET_TAGS = (); }; };
+		67D38DE81BB2402E004A2DBF /* PassportService.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D38DE71BB2402E004A2DBF /* PassportService.m */; settings = {ASSET_TAGS = (); }; };
 		67F3654A1BB155390042BBC9 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F365491BB155390042BBC9 /* UserInfoViewController.m */; settings = {ASSET_TAGS = (); }; };
 		B3AFD3261B841C610001172E /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AFD3251B841C610001172E /* LoginController.m */; };
 		B3AFD3291B841C8A0001172E /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AFD3281B841C8A0001172E /* HomeViewController.m */; };
@@ -126,7 +127,6 @@
 		B3AFD3401B841E650001172E /* KVPO.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AFD33D1B841E650001172E /* KVPO.m */; };
 		B3AFD3411B841E650001172E /* MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AFD33F1B841E650001172E /* MD5.m */; };
 		B3AFD3451B841E830001172E /* Result.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AFD3441B841E830001172E /* Result.m */; };
-		B3AFD34A1B841EBF0001172E /* PassportService.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AFD3471B841EBF0001172E /* PassportService.m */; };
 		B3AFD34B1B841EBF0001172E /* RequestFromServer.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AFD3491B841EBF0001172E /* RequestFromServer.m */; };
 		B3AFD34E1B841F200001172E /* AppControlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AFD34D1B841F200001172E /* AppControlManager.m */; };
 		B3AFD3511B841FF30001172E /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AFD3501B841FF30001172E /* Common.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -535,6 +535,8 @@
 		67C4ACD41BABB448000073D2 /* AllOrderHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllOrderHeaderView.m; sourceTree = "<group>"; };
 		67C4ACD61BABB4EF000073D2 /* OrderInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderInfo.h; sourceTree = "<group>"; };
 		67C4ACD71BABB4EF000073D2 /* OrderInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderInfo.m; sourceTree = "<group>"; };
+		67D38DE61BB2402E004A2DBF /* PassportService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PassportService.h; path = BestKeep/Service/PassportService.h; sourceTree = SOURCE_ROOT; };
+		67D38DE71BB2402E004A2DBF /* PassportService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PassportService.m; path = BestKeep/Service/PassportService.m; sourceTree = SOURCE_ROOT; };
 		67F365481BB155390042BBC9 /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
 		67F365491BB155390042BBC9 /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
 		B3AFD3241B841C610001172E /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginController.h; path = UI/LoginController.h; sourceTree = "<group>"; };
@@ -555,8 +557,6 @@
 		B3AFD33F1B841E650001172E /* MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MD5.m; sourceTree = "<group>"; };
 		B3AFD3431B841E830001172E /* Result.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Result.h; sourceTree = "<group>"; };
 		B3AFD3441B841E830001172E /* Result.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Result.m; sourceTree = "<group>"; };
-		B3AFD3461B841EBF0001172E /* PassportService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PassportService.h; path = Service/PassportService.h; sourceTree = "<group>"; };
-		B3AFD3471B841EBF0001172E /* PassportService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PassportService.m; path = Service/PassportService.m; sourceTree = "<group>"; };
 		B3AFD3481B841EBF0001172E /* RequestFromServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RequestFromServer.h; path = Service/RequestFromServer.h; sourceTree = "<group>"; };
 		B3AFD3491B841EBF0001172E /* RequestFromServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RequestFromServer.m; path = Service/RequestFromServer.m; sourceTree = "<group>"; };
 		B3AFD34C1B841F200001172E /* AppControlManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppControlManager.h; path = Utility/AppControlManager.h; sourceTree = "<group>"; };
@@ -1088,6 +1088,8 @@
 		05F9C2821B82C20E009712BB /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				67D38DE61BB2402E004A2DBF /* PassportService.h */,
+				67D38DE71BB2402E004A2DBF /* PassportService.m */,
 				EA9B0A111B9189F7000E948B /* CashDeskService.h */,
 				EA9B0A121B9189F7000E948B /* CashDeskService.m */,
 				05FA16BF1B906F7600A7B0C4 /* AreaService.h */,
@@ -1096,8 +1098,6 @@
 				05FA16C21B906F7600A7B0C4 /* BKService.m */,
 				05FA16C31B906F7600A7B0C4 /* DeliverAddressServer.h */,
 				05FA16C41B906F7600A7B0C4 /* DeliverAddressServer.m */,
-				B3AFD3461B841EBF0001172E /* PassportService.h */,
-				B3AFD3471B841EBF0001172E /* PassportService.m */,
 				B3AFD3481B841EBF0001172E /* RequestFromServer.h */,
 				B3AFD3491B841EBF0001172E /* RequestFromServer.m */,
 			);
@@ -1980,6 +1980,7 @@
 				B3AFD3DB1B8470DD0001172E /* CXAlertButtonItem.m in Sources */,
 				EA9B0A681B918CB7000E948B /* SDWebImageDecoder.m in Sources */,
 				B3AFD3701B84210D0001172E /* NSArray+MASAdditions.m in Sources */,
+				67D38DE81BB2402E004A2DBF /* PassportService.m in Sources */,
 				EA6E24001B91D7F2002031D1 /* MySaveFooterView.m in Sources */,
 				676744281B8EB5AA007C2832 /* UserCenterDefaultCell.m in Sources */,
 				052F3D231B857EAC0069A7B9 /* ConfirmationIndentViewController.m in Sources */,
@@ -2108,7 +2109,6 @@
 				EA9B0A641B918CB7000E948B /* MKAnnotationView+WebCache.m in Sources */,
 				B3AFD3A31B8422DC0001172E /* SBJsonWriter.m in Sources */,
 				05F9C2981B82C2C8009712BB /* AFHTTPRequestOperationManager.m in Sources */,
-				B3AFD34A1B841EBF0001172E /* PassportService.m in Sources */,
 				05FA16F01B90700800A7B0C4 /* BuyCarViewController.m in Sources */,
 				EA9B0A6C1B918CB7000E948B /* SDWebImagePrefetcher.m in Sources */,
 				05FA16C71B906F7600A7B0C4 /* DeliverAddressServer.m in Sources */,
