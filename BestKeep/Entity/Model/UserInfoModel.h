@@ -21,5 +21,6 @@
 @property (nonatomic,copy) NSString * mob_bind;
 @property (nonatomic,copy) NSString * pay_bind;
 @property (nonatomic,copy) NSString * roles;
+@property (nonatomic,copy) NSString * account;
 
 @end

@@ -36,7 +36,7 @@
 #import "RechargeController.h"
 #import "OneViewController.h"
 #import "ALiPayResult.h"
-
+#import "UserInfoViewController.h"
 
 
 #define DefaultUserHeader_Width      62
@@ -273,7 +273,7 @@
         return 2;
         
     }else if (section == UserCenterTableViewSectionAccountBlance&& [[Userinfo getLoginSatuts]isEqualToString:@"1"]){
-        return 2;
+        return 3;
     }else{
         return 0;
     }
@@ -433,7 +433,6 @@
                       OneViewController *oVC = [[OneViewController alloc]init];
                       oVC.oneRequest = requests;
                       oVC.myTitle = @"我的会员卡";
-                      NSString *aaa = oVC.oneRequest;
                       
                       [self.navigationController pushViewController:oVC animated:YES];
                       
@@ -449,6 +448,11 @@
             
             
             
+        }else if (indexPath.row == 2){
+            UserInfoViewController * userInfoVC = [[UserInfoViewController alloc] init];
+            userInfoVC.userInfo = self.userInfo;
+            [self.navigationController pushViewController:userInfoVC animated:YES];
+        
         }
     }
     
@@ -522,6 +526,8 @@
                 defaultCell.bcLeftTextlabel.attributedText = self.accountMoneyInfo;
             }else if (indexPath.row == 0){
                 defaultCell.bcLeftTextlabel.text = @"我的会员卡";
+            }else if (indexPath.row == 2){
+            defaultCell.bcLeftTextlabel.text = @"我的资料";
             }
         }
         

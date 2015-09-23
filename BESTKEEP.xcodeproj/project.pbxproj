@@ -116,6 +116,7 @@
 		67C4ACD21BABB42F000073D2 /* AllOrderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C4ACD11BABB42F000073D2 /* AllOrderFooterView.m */; settings = {ASSET_TAGS = (); }; };
 		67C4ACD51BABB448000073D2 /* AllOrderHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C4ACD41BABB448000073D2 /* AllOrderHeaderView.m */; settings = {ASSET_TAGS = (); }; };
 		67C4ACD81BABB4EF000073D2 /* OrderInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C4ACD71BABB4EF000073D2 /* OrderInfo.m */; settings = {ASSET_TAGS = (); }; };
+		67F3654A1BB155390042BBC9 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F365491BB155390042BBC9 /* UserInfoViewController.m */; settings = {ASSET_TAGS = (); }; };
 		B3AFD3261B841C610001172E /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AFD3251B841C610001172E /* LoginController.m */; };
 		B3AFD3291B841C8A0001172E /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AFD3281B841C8A0001172E /* HomeViewController.m */; };
 		B3AFD32C1B841CE10001172E /* Userinfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AFD32B1B841CE10001172E /* Userinfo.m */; };
@@ -534,6 +535,8 @@
 		67C4ACD41BABB448000073D2 /* AllOrderHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllOrderHeaderView.m; sourceTree = "<group>"; };
 		67C4ACD61BABB4EF000073D2 /* OrderInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderInfo.h; sourceTree = "<group>"; };
 		67C4ACD71BABB4EF000073D2 /* OrderInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderInfo.m; sourceTree = "<group>"; };
+		67F365481BB155390042BBC9 /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
+		67F365491BB155390042BBC9 /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
 		B3AFD3241B841C610001172E /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginController.h; path = UI/LoginController.h; sourceTree = "<group>"; };
 		B3AFD3251B841C610001172E /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginController.m; path = UI/LoginController.m; sourceTree = "<group>"; };
 		B3AFD3271B841C8A0001172E /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = UI/HomeViewController.h; sourceTree = "<group>"; };
@@ -1815,6 +1818,8 @@
 				EACB5A0E1B86D35D0091D4F5 /* UIColor+BestKeep.m */,
 				EACB5A0F1B86D35D0091D4F5 /* UserCenterViewController.h */,
 				EACB5A101B86D35D0091D4F5 /* UserCenterViewController.m */,
+				67F365481BB155390042BBC9 /* UserInfoViewController.h */,
+				67F365491BB155390042BBC9 /* UserInfoViewController.m */,
 			);
 			name = UserCenter;
 			path = BestKeep/UI/UserCenter;
@@ -2140,6 +2145,7 @@
 				B3AFD4081B8473140001172E /* Reachability.m in Sources */,
 				B3AFD3BF1B846FB30001172E /* RegisterController.m in Sources */,
 				05DCFD3A1BA93D08001E0703 /* ASIInputStream.m in Sources */,
+				67F3654A1BB155390042BBC9 /* UserInfoViewController.m in Sources */,
 				05DCFD391BA93D08001E0703 /* ASIHTTPRequest.m in Sources */,
 				05FA16D61B906FB300A7B0C4 /* CollectionList.m in Sources */,
 				EA6E23FF1B91D7F2002031D1 /* MySaveCollectionViewCell.m in Sources */,

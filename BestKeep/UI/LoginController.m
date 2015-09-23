@@ -388,7 +388,7 @@ alpha:1.0]
     
     __weak typeof(self) wSelf = self;
     //请求
-    [PassportService login:self.view :dicParameters :^(id obj) {
+    [PassportService login:self.view :dicParameters :^(id obj,NSError * error) {
         
         self.loginResult =(Result *) obj;
         
@@ -433,6 +433,7 @@ alpha:1.0]
         [PassportService getUserInfoWithHeadParams:nil bodyParams:nil callBack:^(UserInfoModel *userInfo, NSError *error) {
             if (error) {
                 NSLog(@"调取信息失败");
+                canLogin = YES;
                 [ShowMessage showMessage:@"登录失败"];
             }else{
                 UserInfoModel * model = userInfo;

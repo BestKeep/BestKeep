@@ -73,7 +73,6 @@ int count;
         [manager GET:urlStr parameters:bodyDic success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSString *returnStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
             NSDictionary *returnDic = [returnStr JSONValue];
-          //  NSLog( @"%@", returnDic);
 
             success(operation, returnDic);
             [self hudHide:hud];
