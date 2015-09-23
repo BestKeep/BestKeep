@@ -169,14 +169,14 @@
             
             cell.messageLabel.text = @"手机号码";
             cell.messageText.placeholder = @"请输入手机";
-            //[cell.messageText setKeyboardType:UIKeyboardTypeNumberPad];
+            [cell.messageText setKeyboardType:UIKeyboardTypeNumberPad];
             cell.messageText.delegate = self;
             cell.messageText.tag = indexPath.row;
         }else if (indexPath.row == 3){
             
             cell.messageLabel.text = @"电话号码";
             cell.messageText.placeholder = @"请输入电话";
-            //[cell.messageText setKeyboardType:UIKeyboardTypeNumberPad];
+            [cell.messageText setKeyboardType:UIKeyboardTypeNumberPad];
             cell.messageText.delegate = self;
             cell.messageText.tag = indexPath.row;
         }else if (indexPath.row == 9){

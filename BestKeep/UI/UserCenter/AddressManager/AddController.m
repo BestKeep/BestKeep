@@ -172,13 +172,14 @@
         return cell;
     }else if (indexPath.row == 0 ||indexPath.row == 2 ||indexPath.row == 3 ||indexPath.row == 9 ||indexPath.row == 10){
         
-        NSString *ident = [NSString stringWithFormat:@"Cell%d%d", indexPath.section, indexPath.row];
+        NSString *ident = [NSString stringWithFormat:@"Cell%lu%lu", indexPath.section, indexPath.row];
         AddEditCell *cell=[self.tableView dequeueReusableCellWithIdentifier:ident];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         if (cell==nil) {
             cell=[[AddEditCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ident];
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.messageText.keyboardType = UIKeyboardTypeDefault;
         if (indexPath.row == 0) {
             cell.text_tag = indexPath.row;
             cell.messageLabel.text = @"收货人姓名";
@@ -195,6 +196,8 @@
         }else if (indexPath.row == 2){
             cell.text_tag = indexPath.row;
             cell.messageLabel.text = @"手机号码";
+            cell.messageText.keyboardType = UIKeyboardTypePhonePad;
+
             cell.messageText.placeholder = @"请输入手机";
             if ([mobileInput isEqualToString:@""] || mobileInput == nil) {
                 //mobileInput = [AddSet getAddTelephone];
@@ -208,6 +211,7 @@
         }else if (indexPath.row == 3){
             cell.text_tag =indexPath.row;
             cell.messageLabel.text = @"电话号码";
+            cell.messageText.keyboardType = UIKeyboardTypePhonePad;
             cell.messageText.placeholder = @"请输入电话";
             if ([phoneInput isEqualToString:@""] || phoneInput == nil) {
                 // phoneInput = [AddSet getAddFixedTelephone];
