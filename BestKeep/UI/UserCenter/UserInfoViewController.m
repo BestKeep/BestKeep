@@ -64,11 +64,23 @@
     }else if (indexPath.row == 2){
         defaultCell.ucRightTextLabel.text = self.userInfo.pay_bind;
     }else if (indexPath.row == 3){
-        defaultCell.ucRightTextLabel.text = self.userInfo.mob_bind;
+        defaultCell.ucRightTextLabel.text = self.userInfo.account;
     }
 
     return defaultCell;
 }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    UserCentrerBaseCell * selectedCell = [tableView cellForRowAtIndexPath:indexPath];
+    selectedCell.selected = NO;
+}
+
+-(void)updateHeadImage{
+
+}
+-(void)updateuserInfo{
+
+}
+
 
 /*
 #pragma mark - Navigation

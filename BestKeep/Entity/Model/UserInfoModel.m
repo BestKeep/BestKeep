@@ -29,5 +29,10 @@ NSString * const str_userphoto = @"/picture/userphoto/";//用户头像
 
 }
 
+-(void)setUnKonwnValueKeyWithDict:(NSDictionary *)unKonwnDict{
+
+
+}
+
 
 @end
