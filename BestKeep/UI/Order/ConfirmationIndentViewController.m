@@ -424,12 +424,16 @@
         }
 #pragma mark    条件判断
         if (!isEnough) {
-            NSString *msg = [NSString stringWithFormat:@"%@%@%@",@"您订购的",notEnough_shopping,@"库存不足"];
-            [ShowMessage showMessage:msg];
+            self.isConfirmOrder = NO;
+            NSString *msg = [NSString stringWithFormat:@"%@%@%@",@"您订购的",@"商品",@"库存不足"];
+            [ShowMessage showMessage:msg withCenter:self.view.center];
+            return;
         }else{
             if (isPreorder&&isSpotgoods){
                 
                 [ShowMessage showMessage:@"预购和现货订单不能同时订购"];
+                self.isConfirmOrder = NO;
+                return;
             }else if (isPreorder && !isSpotgoods){
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
                                                                 message:@"您选择的商品为预购商品，需等待全部到货后才能发货，确认订购吗?"
@@ -488,6 +492,9 @@
 }
 -(void)GetOrderIDList:(NSDictionary*)Json{
     
+    __weak typeof(self) wSelf = self;
+
+    
     NSString *strJson = [Common dictionaryToJson:Json];
     [BKService submitOrder:strJson view:nil callback:^(id obj) {
         
@@ -530,7 +537,6 @@
                 if (!isNet) {
                     [ShowMessage showMessage:@"亲,您的手机网络不太顺畅"];
                 }
-                __weak typeof(self) wSelf = self;
                 [manager POST:strurl parameters:dic
                       success:^(AFHTTPRequestOperation *operation,id responseObject) {
                           NSString *st = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
@@ -556,6 +562,7 @@
                       }];
                 
             }else{
+                wSelf.isConfirmOrder = NO;
                 [ShowMessage showMessage:@"您没有选择有效的商品"];
              }
             
@@ -565,6 +572,7 @@
             
         }
         else{
+            wSelf.isConfirmOrder = NO;
             [ShowMessage showMessage:scc.msg];
         }
     }];
