@@ -348,7 +348,7 @@
     }
 }
 -(void)confirmReceiveEvent:(UIButton*)sender{
-    if ([self.delegate respondsToSelector:@selector(allOrderView:actionType:order:)]) {
+    if ([self.delegate respondsToSelector:@selector(allOrderFooterViewAction:orderInfo:)]) {
         [self.delegate allOrderFooterViewAction:AllOrderFooterActionTypeConfirm orderInfo:self.order];
     }
 }
