@@ -116,8 +116,6 @@
 
 -(void)reloadOrderStauCell{
     [self.userCenterTableView reloadData];
-    //    NSIndexPath *indexPath=[NSIndexPath indexPathForRow:1 inSection:0];
-    //    [self.userCenterTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -136,27 +134,27 @@
 }
 #pragma mark -- 更新状态
 -(void)hideBondMemberLable{
-    self.bondMemberLabel.hidden = YES;
-    self.useLabel.hidden = YES;
-    self.memberLabel.hidden = YES;
-    self.linkBtn.hidden = YES;
-    self.bondMemberLabel.text = @"";
-    self.useLabel.text = @"";
-    self.memberLabel.text = @"";
-    [self.linkBtn setTitle:@"" forState:UIControlStateNormal];
+//    self.bondMemberLabel.hidden = YES;
+//    self.useLabel.hidden = YES;
+//    self.memberLabel.hidden = YES;
+//    self.linkBtn.hidden = YES;
+//    self.bondMemberLabel.text = @"";
+//    self.useLabel.text = @"";
+//    self.memberLabel.text = @"";
+//    [self.linkBtn setTitle:@"" forState:UIControlStateNormal];
 }
 -(void)showBondMemberLabelWithMemberName:(NSString *)memberName{
-    self.bondMemberLabel.text = memberName;
-    self.useLabel.text = @"您正在借用";
-    self.memberLabel.text = @"的会员卡购物";
-    
-    self.useLabel.hidden = NO;
-    self.memberLabel.hidden = NO;
-    self.bondMemberLabel.hidden = NO;
-    self.linkBtn.hidden = NO;
-    self.linkBtn.contentHorizontalAlignment=UIControlContentHorizontalAlignmentLeft;
-    
-    [self.linkBtn setTitle:@"了解详情" forState:UIControlStateNormal];
+//    self.bondMemberLabel.text = memberName;
+//    self.useLabel.text = @"您正在借用";
+//    self.memberLabel.text = @"的会员卡购物";
+//    
+//    self.useLabel.hidden = NO;
+//    self.memberLabel.hidden = NO;
+//    self.bondMemberLabel.hidden = NO;
+//    self.linkBtn.hidden = NO;
+//    self.linkBtn.contentHorizontalAlignment=UIControlContentHorizontalAlignmentLeft;
+//    
+//    [self.linkBtn setTitle:@"了解详情" forState:UIControlStateNormal];
 }
 
 -(void)updateLoginStatus{

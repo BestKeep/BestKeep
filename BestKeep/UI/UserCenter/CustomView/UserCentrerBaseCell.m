@@ -11,6 +11,7 @@
 #import "UIColor+CJCategory.h"
 
 @interface UserCentrerBaseCell ()
+
 @property (nonatomic,strong) UIView * backGroundView;
 
 @end
@@ -20,11 +21,10 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        // Initialization code
+
         /**
          * 设置cell 圆角背景图
          */
-        //        if (IOS7) {
         self.cellBackImageView =[[UIView alloc] initWithFrame:CGRectMake(10.0f, 0.0f, 300.0f, 48.0f)];
         self.cellBackImageView.backgroundColor = [UIColor whiteColor];
         [self.contentView addSubview:self.cellBackImageView];
@@ -34,10 +34,6 @@
             make.top.equalTo(self.mas_top);
             make.height.equalTo(@(44.0f));
         }];
-        //        }else{
-        //            self.cellBackImageView =[[GWBaseCellGroundView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 300.0f, 48.0f)];
-        //            self.backgroundView =self.cellBackImageView;
-        //        }
         /**
          * 设置cell Label
          */
@@ -116,19 +112,6 @@
         [self.ucAccessoryView addSubview:self.userImageView];
         
     }
-    /**
-     *  头像框效果 因高亮后显示 背景 改用border
-     
-     self.userCoverImageView =[[UIImageView alloc] init];
-     self.userCoverImageView.image =[UIImage imageNamed:@"edit_bk_portrait"];
-     self.userCoverImageView.frame = CGRectMake(self.userImageView.left, 6.0f, 40.f, 40.f);
-     self.userCoverImageView.backgroundColor =[UIColor clearColor];
-     [self.ucAccessoryView addSubview:self.userCoverImageView];
-     }else{
-     [self.userCoverImageView removeFromSuperview];
-     [self.userImageView removeFromSuperview];
-     }
-     */
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
