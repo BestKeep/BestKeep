@@ -141,7 +141,9 @@ static NSSet *foundationClasses_;
             return YES;
         }
         c = class_getSuperclass(c);
-        if ([self isClassFromFoundation:c]) break;
+        if ([self isClassFromFoundation:c]) {
+            break;
+        };
     }
     return NO;
 }
@@ -176,8 +178,6 @@ static NSSet *foundationClasses_;
     }];
     return result;
 }
-
-
 
 @end
 
