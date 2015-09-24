@@ -87,10 +87,10 @@
                     [self picture:@"\U0000e60f" text:@"暂无订单数据"];
                     break;
                 case OrderStatuViewTypePaid:
-                    [self picture:@"\U0000e60d" text:@"暂无订单数据"];
+                    [self picture:@"\U0000e60e" text:@"暂无订单数据"];
                     break;
                 case OrderStatuViewTypeUnPay:
-                    [self picture:@"\U0000e60e" text:@"暂无订单数据"];
+                    [self picture:@"\U0000e60d" text:@"暂无订单数据"];
                     break;
                 case OrderStatuViewTypeWaitReceive:
                     [self picture:@"\U0000e60c" text:@"暂无订单数据"];

@@ -409,6 +409,15 @@
 
 -(void)switchAction:(id)sender{
     UISwitch *switchButton = (UISwitch*)sender;
+    
+    if (self.address.isDefaultAddress) {
+        if (!switchButton.on) {
+            switchButton.on = YES;
+            [ShowMessage showMessage:@"不可以取消默认地址" withCenter:self.view.center];
+            return;
+        }
+    }
+    
     isFlag = switchButton.on;
 //    if ([[AddSet getAddIsDefaulit]isEqualToString:@"1" ]) {
 //        isFlag = YES;

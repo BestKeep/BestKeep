@@ -53,11 +53,11 @@
 
 #pragma mark -- 根据order 返回footerView height
 -(CGFloat)getFooterHeightWithOrder:(OrderInfo *)orderInfo{
-    if ([orderInfo.status isEqualToString:@"05"]) {
-        return [self.orderInfoView getFooterOrderInfoHeightWithOrder:orderInfo] + SECTION_BOTTOM_MARGIN;
-    }else{
+//    if ([orderInfo.status isEqualToString:@""]) {
+//        return [self.orderInfoView getFooterOrderInfoHeightWithOrder:orderInfo] + SECTION_BOTTOM_MARGIN;
+//    }else{
         return [self.orderInfoView getFooterOrderInfoHeightWithOrder:orderInfo]+[self.orderActionView getFooterActionViewHeightWithOrder:orderInfo] + SECTION_BOTTOM_MARGIN;
-    }
+//    }
 }
 
 -(void)allOrderFooterViewAction:(AllOrderFooterActionType)type orderInfo:(OrderInfo *)order{
@@ -354,10 +354,14 @@
 }
 #pragma mark -- 根据order 返回action height
 -(CGFloat)getFooterActionViewHeightWithOrder:(OrderInfo *)orderInfo{
-    if ([orderInfo.status isEqualToString:@"05"]) {
-        return 0;
+    if ([orderInfo.status isEqualToString:@"01"]) {
+        return 50;
+    }else if ([orderInfo.status isEqualToString:@"02"]){
+        return 50;
+    }else if ([orderInfo.status isEqualToString:@"03"]){
+        return 50;
     }
-    return 50;
+    return 0;
 }
 
 
