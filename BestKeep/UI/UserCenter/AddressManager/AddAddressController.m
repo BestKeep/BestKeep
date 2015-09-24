@@ -50,6 +50,13 @@
 @property (nonatomic, strong) NSMutableArray * province_array;
 
 
+@property (nonatomic,strong) UIActionSheet * areaSheet;
+@property (nonatomic,strong) UIActionSheet * citySheet;
+@property (nonatomic,strong) UIActionSheet * squareSheet;
+
+
+
+
 @end
 
 @implementation AddAddressController
@@ -480,9 +487,10 @@
             [self.view.window.rootViewController presentViewController:alertVC animated:YES completion:nil];
         }
         else{
-            UIActionSheet *ast =[[UIActionSheet alloc]initWithTitle:@"\n\n\n\n\n\n\n\n\n" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:nil];
+            UIActionSheet *ast =[[UIActionSheet alloc]initWithTitle:@"\n\n\n\n\n\n\n\n\n" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"确定",nil];
             [ast setActionSheetStyle:UIActionSheetStyleDefault];
             ast.userInteractionEnabled=YES;
+            self.areaSheet = ast;
             areaPicker = [[UIPickerView alloc]initWithFrame:CGRectMake(0,ast.frame.origin.y,SCREEN_WIDTH ,150)];
             [areaPicker sizeToFit];
             areaPicker.delegate = self;
@@ -566,7 +574,7 @@
             [self.view.window.rootViewController presentViewController:alertVC2 animated:YES completion:nil];
         }
         else{
-            UIActionSheet *ast =[[UIActionSheet alloc]initWithTitle:@"\n\n\n\n\n\n\n\n\n" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:nil];
+            UIActionSheet *ast =[[UIActionSheet alloc]initWithTitle:@"\n\n\n\n\n\n\n\n\n" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"确定",nil];
             [ast setActionSheetStyle:UIActionSheetStyleDefault];
             ast.userInteractionEnabled=YES;
             cityPicker = [[UIPickerView alloc]initWithFrame:CGRectMake(0,ast.frame.origin.y,SCREEN_WIDTH ,150)];
@@ -576,7 +584,7 @@
             cityPicker.dataSource =self;
             cityPicker.showsSelectionIndicator =YES;
             [ast addSubview:cityPicker];
-            
+            self.citySheet = ast;
             [ast setBackgroundColor:[UIColor whiteColor]];
             [ast showInView:[UIApplication sharedApplication].keyWindow];
         }
@@ -603,7 +611,7 @@
             [self.view.window.rootViewController presentViewController:alertVC3 animated:YES completion:nil];
         }
         else{
-            UIActionSheet *ast =[[UIActionSheet alloc]initWithTitle:@"\n\n\n\n\n\n\n\n\n" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:nil];
+            UIActionSheet *ast =[[UIActionSheet alloc]initWithTitle:@"\n\n\n\n\n\n\n\n\n" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"q确定",nil];
             [ast setActionSheetStyle:UIActionSheetStyleDefault];
             ast.userInteractionEnabled=YES;
             squarePicker = [[UIPickerView alloc]initWithFrame:CGRectMake(0,ast.frame.origin.y,SCREEN_WIDTH ,150)];
@@ -612,6 +620,8 @@
             squarePicker.dataSource =self;
             squarePicker.showsSelectionIndicator =YES;
             [ast addSubview:squarePicker];
+            
+            self.squareSheet = ast;
             
             [ast setBackgroundColor:[UIColor whiteColor]];
             [ast showInView:[UIApplication sharedApplication].keyWindow];
@@ -964,6 +974,70 @@
     }
     NSLog(@"just submiting");
     
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex{
+
+
+}
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0) {
+        if (actionSheet == self.areaSheet) {
+            
+            if (province_code == nil||[province_code isEqualToString:@""]) {
+                
+            }else{
+                [AreaService GetCity:province_code view:self.view callback:^(id obj) {
+                    [city_name_array removeAllObjects];
+                    [city_code_array removeAllObjects];
+                    NSArray *result_array = [[NSArray alloc]init];
+                    result_array = obj;
+                    for (int i =0; i < result_array.count; i++) {
+                        Area *area_data = [[Area alloc]init];
+                        area_data = result_array[i];
+                        [city_code_array addObject:area_data.AreaCode];
+                        [city_name_array addObject:area_data.AreaName];
+                    }
+                    [areaPicker reloadAllComponents];
+                    [cityPicker reloadAllComponents];
+                    [squarePicker reloadAllComponents];
+                    
+                }];
+                
+            }
+
+            
+        }else if (actionSheet == self.citySheet){
+            
+            if (city_code == nil||[city_code isEqualToString:@""]) {
+                
+            }else{
+                [AreaService GetSquare:city_code view:self.view callback:^(id obj) {
+                    [country_name_array removeAllObjects];
+                    [country_code_array removeAllObjects];
+                    NSArray *result_array = [[NSArray alloc]init];
+                    result_array = obj;
+                    for (int i =0; i < result_array.count; i++) {
+                        Area *area_data = [[Area alloc]init];
+                        area_data = result_array[i];
+                        [country_code_array addObject:area_data.AreaCode];
+                        [country_name_array addObject:area_data.AreaName];
+                        
+                    }
+                    [areaPicker reloadAllComponents];
+                    [cityPicker reloadAllComponents];
+                    [squarePicker reloadAllComponents];
+                }];
+            }
+
+        
+        }else if (actionSheet == self.squareSheet){
+        
+        
+        }
+        [self.tableView reloadData];
+    }
+
 }
 
 - (void)didReceiveMemoryWarning {

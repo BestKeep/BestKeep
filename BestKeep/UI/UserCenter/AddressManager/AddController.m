@@ -20,6 +20,13 @@
 
 @interface AddController ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,UIPickerViewDataSource,UIPickerViewDelegate,UITextViewDelegate,UIActionSheetDelegate>
 @property (nonatomic, strong) UITableView *tableView;
+
+
+@property (nonatomic,strong) UIActionSheet * areaSheet;
+@property (nonatomic,strong) UIActionSheet * citySheet;
+@property (nonatomic,strong) UIActionSheet * squareSheet;
+
+
 @end
 
 @implementation AddController{
@@ -297,6 +304,7 @@
                 chooseLabel1.text = areaInput;
                 chooseLabel1.textColor = COLOR_05;
             }
+            [chooseLabel1 removeFromSuperview];
             [cell.contentView addSubview:chooseLabel1];
             chooseLabel1.textAlignment = NSTextAlignmentRight;
             chooseLabel1.font = [UIFont boldSystemFontOfSize:16];
@@ -437,7 +445,7 @@
         if(alertVC == nil){
             alertVC= [UIAlertController alertControllerWithTitle:@"" message:@" "preferredStyle:UIAlertControllerStyleActionSheet];
             
-            areaPicker = [[UIPickerView alloc]initWithFrame:CGRectMake(alertVC.view.frame.origin.x, alertVC.view.frame.origin.y, alertVC.view.frame.size.width/24*23, alertVC.view.frame.size.height)];
+            areaPicker = [[UIPickerView alloc]initWithFrame:CGRectMake(alertVC.view.frame.origin.x, alertVC.view.frame.origin.y, alertVC.view.frame.size.width/24*23, 180)];
             areaPicker.delegate = self;
             areaPicker.dataSource =self;
             
@@ -503,7 +511,7 @@
             [self.view.window.rootViewController presentViewController:alertVC animated:YES completion:nil];
         }
         else{
-            UIActionSheet *ast =[[UIActionSheet alloc]initWithTitle:@"\n\n\n\n\n\n\n\n\n" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:nil];
+            UIActionSheet *ast =[[UIActionSheet alloc]initWithTitle:@"\n\n\n\n\n\n\n\n\n" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"确定",nil];
             [ast setActionSheetStyle:UIActionSheetStyleDefault];
             ast.userInteractionEnabled=YES;
             areaPicker = [[UIPickerView alloc]initWithFrame:CGRectMake(0,ast.frame.origin.y,SCREEN_WIDTH ,150)];
@@ -512,6 +520,7 @@
             areaPicker.dataSource =self;
             areaPicker.showsSelectionIndicator =YES;
             [ast addSubview:areaPicker];
+            self.areaSheet = ast;
             
             [ast setBackgroundColor:[UIColor whiteColor]];
             [ast showInView:[UIApplication sharedApplication].keyWindow];
@@ -523,7 +532,7 @@
         if(alertVC2 == nil){
             alertVC2= [UIAlertController alertControllerWithTitle:@"\n\n\n\n\n\n\n\n\n" message:@" "preferredStyle:UIAlertControllerStyleActionSheet];
             
-            cityPicker = [[UIPickerView alloc]initWithFrame:CGRectMake(alertVC2.view.frame.origin.x, alertVC2.view.frame.origin.y, alertVC2.view.frame.size.width/24*23, alertVC2.view.frame.size.height)];
+            cityPicker = [[UIPickerView alloc]initWithFrame:CGRectMake(alertVC2.view.frame.origin.x, alertVC2.view.frame.origin.y, alertVC2.view.frame.size.width/24*23, 180)];
             cityPicker.delegate = self;
             cityPicker.dataSource =self;
             //UIAlertAction *ok =[UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:nil];
@@ -589,7 +598,7 @@
             [self.view.window.rootViewController presentViewController:alertVC2 animated:YES completion:nil];
         }
         else{
-            UIActionSheet *ast =[[UIActionSheet alloc]initWithTitle:@"\n\n\n\n\n\n\n\n\n" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:nil];
+            UIActionSheet *ast =[[UIActionSheet alloc]initWithTitle:@"\n\n\n\n\n\n\n\n\n" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"确定",nil];
             [ast setActionSheetStyle:UIActionSheetStyleDefault];
             ast.userInteractionEnabled=YES;
             cityPicker = [[UIPickerView alloc]initWithFrame:CGRectMake(0,ast.frame.origin.y,SCREEN_WIDTH ,150)];
@@ -597,6 +606,7 @@
             cityPicker.delegate = self;
             cityPicker.dataSource =self;
             cityPicker.showsSelectionIndicator =YES;
+            self.citySheet = ast;
             [ast addSubview:cityPicker];
             
             [ast setBackgroundColor:[UIColor whiteColor]];
@@ -607,7 +617,7 @@
         if(alertVC3 == nil){
             alertVC3= [UIAlertController alertControllerWithTitle:@"\n\n\n\n\n\n\n\n\n" message:@" "preferredStyle:UIAlertControllerStyleActionSheet];
             
-            squarePicker = [[UIPickerView alloc]initWithFrame:CGRectMake(alertVC3.view.frame.origin.x, alertVC3.view.frame.origin.y, alertVC2.view.frame.size.width/24*23, alertVC3.view.frame.size.height)];
+            squarePicker = [[UIPickerView alloc]initWithFrame:CGRectMake(alertVC3.view.frame.origin.x, alertVC3.view.frame.origin.y, alertVC2.view.frame.size.width/24*23, 180)];
             squarePicker.delegate = self;
             squarePicker.dataSource =self;
             //UIAlertAction *ok =[UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:nil];
@@ -625,7 +635,7 @@
             [self.view.window.rootViewController presentViewController:alertVC3 animated:YES completion:nil];
         }
         else{
-            UIActionSheet *ast =[[UIActionSheet alloc]initWithTitle:@"\n\n\n\n\n\n\n\n\n" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:nil];
+            UIActionSheet *ast =[[UIActionSheet alloc]initWithTitle:@"\n\n\n\n\n\n\n\n\n" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"确定",nil];
             [ast setActionSheetStyle:UIActionSheetStyleDefault];
             ast.userInteractionEnabled=YES;
             squarePicker = [[UIPickerView alloc]initWithFrame:CGRectMake(0,ast.frame.origin.y,SCREEN_WIDTH ,150)];
@@ -634,6 +644,7 @@
             squarePicker.dataSource =self;
             squarePicker.showsSelectionIndicator =YES;
             [ast addSubview:squarePicker];
+            self.squareSheet = ast;
             
             [ast setBackgroundColor:[UIColor whiteColor]];
             [ast showInView:[UIApplication sharedApplication].keyWindow];
@@ -1023,6 +1034,66 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0) {
+        if (actionSheet == self.areaSheet) {
+            
+            if (province_code == nil||[province_code isEqualToString:@""]) {
+                
+            }else{
+                [AreaService GetCity:province_code view:self.view callback:^(id obj) {
+                    [city_name_array removeAllObjects];
+                    [city_code_array removeAllObjects];
+                    NSArray *result_array = [[NSArray alloc]init];
+                    result_array = obj;
+                    for (int i =0; i < result_array.count; i++) {
+                        Area *area_data = [[Area alloc]init];
+                        area_data = result_array[i];
+                        [city_code_array addObject:area_data.AreaCode];
+                        [city_name_array addObject:area_data.AreaName];
+                    }
+                    [areaPicker reloadAllComponents];
+                    [cityPicker reloadAllComponents];
+                    [squarePicker reloadAllComponents];
+                    
+                }];
+                
+            }
+            
+            
+        }else if (actionSheet == self.citySheet){
+            
+            if (city_code == nil||[city_code isEqualToString:@""]) {
+                
+            }else{
+                [AreaService GetSquare:city_code view:self.view callback:^(id obj) {
+                    [country_name_array removeAllObjects];
+                    [country_code_array removeAllObjects];
+                    NSArray *result_array = [[NSArray alloc]init];
+                    result_array = obj;
+                    for (int i =0; i < result_array.count; i++) {
+                        Area *area_data = [[Area alloc]init];
+                        area_data = result_array[i];
+                        [country_code_array addObject:area_data.AreaCode];
+                        [country_name_array addObject:area_data.AreaName];
+                        
+                    }
+                    [areaPicker reloadAllComponents];
+                    [cityPicker reloadAllComponents];
+                    [squarePicker reloadAllComponents];
+                }];
+            }
+            
+           
+        }else if (actionSheet == self.squareSheet){
+            
+            
+        }
+        
+         [self.tableView reloadData];
+    }
+    
 }
 
 /*
