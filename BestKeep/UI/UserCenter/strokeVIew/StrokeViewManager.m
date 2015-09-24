@@ -36,7 +36,9 @@
     
     UIImage * backImage;
     UIColor * textColor = strokeView.strokeLabel.textColor;
-    if (count>9&&count<99) {
+//    count  = 102;
+
+    if (count>9) {
         if (textColor == [UIColor whiteColor]) {
             backImage = [UIImage imageNamed:@"提示圈－实体2"];
         }else if (textColor == [UIColor redColor]){
@@ -52,6 +54,9 @@
     }
     if (count == 0) {
         [strokeView hideStrokeView];
+    }else if (count>99){
+        [strokeView updateStrokeViewWithText:[NSString stringWithFormat:@"%d+",99] andBackImage:backImage textColor:textColor];
+
     }else{
         [strokeView updateStrokeViewWithText:[NSString stringWithFormat:@"%ld",(long)count] andBackImage:backImage textColor:textColor];
     }

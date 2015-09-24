@@ -22,7 +22,7 @@
         self.backgroundColor = [UIColor clearColor];
         UILabel * strokeLable = [[UILabel alloc] initWithFrame:self.bounds];
         strokeLable.text = text;
-        strokeLable.font = [UIFont systemFontOfSize:11];
+        strokeLable.font = [UIFont systemFontOfSize:8.5];
         strokeLable.textAlignment = NSTextAlignmentCenter;
         strokeLable.textColor = textColor;
         [self addSubview:strokeLable];
