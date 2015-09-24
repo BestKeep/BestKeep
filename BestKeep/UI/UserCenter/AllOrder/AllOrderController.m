@@ -134,7 +134,7 @@
     [_orderTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.view.mas_left);
         make.right.mas_equalTo(self.view.mas_right);
-        make.bottom.mas_equalTo(self.view.mas_bottom);
+        make.bottom.mas_equalTo(self.view.mas_bottom).mas_offset(10);
         make.top.mas_equalTo(self.view.mas_top);
     }];
     [_orderTableView reloadData];
