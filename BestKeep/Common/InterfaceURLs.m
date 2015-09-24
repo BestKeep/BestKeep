@@ -31,30 +31,30 @@
 
 
 #pragma mark ------服务器地址(单一数据）------ 测试
-//NSString * const strUtouuAPI = @"http://api.test.utouu.com/v1/";
-//NSString * const strBKAPI = @"http://api.test.bestkeep.cn/";
-//NSString * const strCAPI = @"http://api.cac.test.utouu.com/";
-//NSString * const strPassport = @"https://passport.test.utouu.com/";
-//NSString * const strRegister = @"http://msg.test.utouu.com/";//获取验证码
-//NSString * const strVersion = @"http://api.test.bestkeep.cn/v1/";
-//NSString * const strIndexhtml = @"http://m.test.bestkeep.cn/app/index.html";
-//NSString * const strBKWeb = @"http://m.test.bestkeep.cn/";
-//NSString * const strUTOUUWeb = @"http://cac.test.utouu.com/";
-//NSString * const strSave_detail = @"http://m.test.bestkeep.cn/app/productDetail.html";
-//NSString *const rechargeMoney = @"http://api.test.bestkeep.cn/recharge/alipay";
+NSString * const strUtouuAPI = @"http://api.test.utouu.com/v1/";
+NSString * const strBKAPI = @"http://api.test.bestkeep.cn/";
+NSString * const strCAPI = @"http://api.cac.test.utouu.com/";
+NSString * const strPassport = @"https://passport.test.utouu.com/";
+NSString * const strRegister = @"http://msg.test.utouu.com/";//获取验证码
+NSString * const strVersion = @"http://api.test.bestkeep.cn/v1/";
+NSString * const strIndexhtml = @"http://m.test.bestkeep.cn/app/index.html";
+NSString * const strBKWeb = @"http://m.test.bestkeep.cn/";
+NSString * const strUTOUUWeb = @"http://cac.test.utouu.com/";
+NSString * const strSave_detail = @"http://m.test.bestkeep.cn/app/productDetail.html";
+NSString *const rechargeMoney = @"http://api.test.bestkeep.cn/recharge/alipay";
 
 #pragma mark ===  生产
-NSString * const strUtouuAPI = @"http://api.utouu.com/v1/";
-NSString * const strBKAPI = @"http://api.bestkeep.cn/";
-NSString * const strCAPI = @"http://api.cac.utouu.com/";
-NSString * const strPassport = @"https://passport.utouu.com/";
-NSString * const strRegister = @"http://msg.utouu.com/";//获取验证码
-NSString * const strVersion = @"http://api.bestkeep.cn/v1/";
-NSString * const strIndexhtml = @"http://m.bestkeep.cn/app/index.html";
-NSString * const strBKWeb = @"http://m.bestkeep.cn/";
-NSString * const strUTOUUWeb = @"http://cac.utouu.com/";
-NSString * const strSave_detail = @"http://m.bestkeep.cn/app/productDetail.html";
-NSString *const rechargeMoney = @"http://api.bestkeep.cn/recharge/alipay";
+//NSString * const strUtouuAPI = @"http://api.utouu.com/v1/";
+//NSString * const strBKAPI = @"http://api.bestkeep.cn/";
+//NSString * const strCAPI = @"http://api.cac.utouu.com/";
+//NSString * const strPassport = @"https://passport.utouu.com/";
+//NSString * const strRegister = @"http://msg.utouu.com/";//获取验证码
+//NSString * const strVersion = @"http://api.bestkeep.cn/v1/";
+//NSString * const strIndexhtml = @"http://m.bestkeep.cn/app/index.html";
+//NSString * const strBKWeb = @"http://m.bestkeep.cn/";
+//NSString * const strUTOUUWeb = @"http://cac.utouu.com/";
+//NSString * const strSave_detail = @"http://m.bestkeep.cn/app/productDetail.html";
+//NSString *const rechargeMoney = @"http://api.bestkeep.cn/recharge/alipay";
 
 
 

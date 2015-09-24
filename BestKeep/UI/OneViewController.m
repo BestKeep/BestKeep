@@ -448,12 +448,11 @@
 
             }else if ([[param_dic objectForKey:@"action"] isEqualToString:@"close"]){
                 if ([ispop isEqualToString:@"1"]) {
-                     [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1] animated:YES];
+                     [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count -2] animated:YES];
                 }else if ([ispop isEqualToString:@"2"]){
                     [self.navigationController popViewControllerAnimated:YES];
                 }else if ([ispop isEqualToString:@"3"]){
-                     [self.navigationController popToRootViewControllerAnimated:YES];
-                   
+                    [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count -3] animated:YES];
                 }
                
                 
@@ -710,12 +709,12 @@
     
                 }else if ([[param_dic objectForKey:@"action"] isEqualToString:@"close"]){
                     if ([ispop isEqualToString:@"1"]) {
-                        [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1] animated:YES];
+                         [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count -2] animated:YES];
                     }else if ([ispop isEqualToString:@"2"]){
                         [self.navigationController popViewControllerAnimated:YES];
                     
                     }else if ([ispop isEqualToString:@"3"]){
-                         [self.navigationController popToRootViewControllerAnimated:YES];
+                        [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count -3] animated:YES];
                     }
                 }
             }
