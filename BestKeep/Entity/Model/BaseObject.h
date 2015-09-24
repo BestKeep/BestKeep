@@ -38,7 +38,7 @@
  *  @return 结果
  */
 
-- (BOOL)checkIsExistPropertyWithSender:(id)sender verifyPropertyName:(NSString *)verifyPropertyName;
+- (BOOL)checkIsExistPropertyWithSender:(BaseObject *)sender verifyPropertyName:(NSString *)verifyPropertyName;
 
 @end
 

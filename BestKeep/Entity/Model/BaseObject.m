@@ -8,6 +8,9 @@
 
 #import "BaseObject.h"
 #import <objc/runtime.h>
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
 #ifdef DEBUG
 #define D_Log(...) NSLog(__VA_ARGS__)
@@ -100,23 +103,80 @@
 
 @end
 
+typedef BOOL (^DJClassesEnumeration)(Class c, BOOL *stop);
+
+static NSSet *foundationClasses_;
+
+
 @implementation BaseObject (CheckIsExistProperty)
 
-- (BOOL)checkIsExistPropertyWithSender:(id)sender verifyPropertyName:(NSString *)verifyPropertyName
+- (BOOL)checkIsExistPropertyWithSender:(BaseObject *)sender verifyPropertyName:(NSString *)verifyPropertyName
 {
-    unsigned int outCount, i;
-    objc_property_t * properties = class_copyPropertyList([sender class], &outCount);
-    for (i = 0; i < outCount; i++) {
-        objc_property_t property =properties[i];
-        NSString *propertyName = [[NSString alloc] initWithCString:property_getName(property) encoding:NSUTF8StringEncoding];
-        if ([propertyName isEqualToString:verifyPropertyName]) {
-            free(properties);
+    BOOL exict = [sender enumerateClasses:^(__unsafe_unretained Class c, BOOL *stop) {
+        unsigned int outCount, i;
+        
+        objc_property_t * properties = class_copyPropertyList([c class], &outCount);
+        for (i = 0; i < outCount; i++) {
+            objc_property_t property =properties[i];
+            NSString *propertyName = [[NSString alloc] initWithCString:property_getName(property) encoding:NSUTF8StringEncoding];
+            if ([propertyName isEqualToString:verifyPropertyName]) {
+                free(properties);
+                return YES;
+            }
+        }
+        free(properties);
+        return NO;
+    }];
+
+    return exict;
+}
+
+-(BOOL)enumerateClasses:(DJClassesEnumeration)enumeration{
+    if (enumeration == nil) return NO;
+    BOOL stop = NO;
+    Class c = [self class];
+    while (c && !stop) {
+       BOOL exit = enumeration(c, &stop);
+        if (exit) {
             return YES;
         }
+        c = class_getSuperclass(c);
+        if ([self isClassFromFoundation:c]) break;
     }
-    free(properties);
     return NO;
 }
+
+- (NSSet *)foundationClasses
+{
+    if (foundationClasses_ == nil) {
+        foundationClasses_ = [NSSet setWithObjects:
+                              [NSURL class],
+                              [NSDate class],
+                              [NSValue class],
+                              [NSData class],
+                              [NSError class],
+                              [NSArray class],
+                              [NSDictionary class],
+                              [NSString class],
+                              [NSAttributedString class], nil];
+    }
+    return foundationClasses_;
+}
+
+- (BOOL)isClassFromFoundation:(Class)c
+{
+    if (c == [NSObject class] || c == [NSManagedObject class]) return YES;
+    
+    __block BOOL result = NO;
+    [[self foundationClasses] enumerateObjectsUsingBlock:^(Class foundationClass, BOOL *stop) {
+        if (c == foundationClass || [c isSubclassOfClass:foundationClass]) {
+            result = YES;
+            *stop = YES;
+        }
+    }];
+    return result;
+}
+
 
 
 @end
