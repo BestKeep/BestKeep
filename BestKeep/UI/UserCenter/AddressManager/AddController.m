@@ -443,7 +443,7 @@
     if (indexPath.row == 5) {
         
         if(alertVC == nil){
-            alertVC= [UIAlertController alertControllerWithTitle:@"" message:@" "preferredStyle:UIAlertControllerStyleActionSheet];
+            alertVC= [UIAlertController alertControllerWithTitle:@"\n\n\n\n\n\n\n\n\n" message:@" "preferredStyle:UIAlertControllerStyleActionSheet];
             
             areaPicker = [[UIPickerView alloc]initWithFrame:CGRectMake(alertVC.view.frame.origin.x, alertVC.view.frame.origin.y, alertVC.view.frame.size.width/24*23, 180)];
             areaPicker.delegate = self;

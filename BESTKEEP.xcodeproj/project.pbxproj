@@ -67,7 +67,6 @@
 		05FE7E501B848A22006D1C69 /* BKNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FE7E471B848A22006D1C69 /* BKNavigationController.m */; };
 		05FE7E531B848A22006D1C69 /* BKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FE7E4E1B848A22006D1C69 /* BKWebView.m */; };
 		05FE7E901B848E64006D1C69 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FE7E8B1B848E64006D1C69 /* BaseViewController.m */; };
-		05FE7E911B848E64006D1C69 /* OneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FE7E8D1B848E64006D1C69 /* OneViewController.m */; };
 		05FE7E921B848E64006D1C69 /* TwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FE7E8F1B848E64006D1C69 /* TwoViewController.m */; };
 		05FE8CCA1B9E8ADE00698F24 /* iconfont-refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 05FE8CC91B9E8ADE00698F24 /* iconfont-refresh.png */; };
 		05FE8CCD1B9EA02D00698F24 /* RechargeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FE8CCC1B9EA02D00698F24 /* RechargeController.m */; };
@@ -119,6 +118,7 @@
 		67D38DE81BB2402E004A2DBF /* PassportService.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D38DE71BB2402E004A2DBF /* PassportService.m */; settings = {ASSET_TAGS = (); }; };
 		67D38DEB1BB283C4004A2DBF /* InterfaceURLs.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D38DEA1BB283C4004A2DBF /* InterfaceURLs.m */; settings = {ASSET_TAGS = (); }; };
 		67F3654A1BB155390042BBC9 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F365491BB155390042BBC9 /* UserInfoViewController.m */; settings = {ASSET_TAGS = (); }; };
+		67FD67FB1BB4F95800B5EB56 /* OneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FD67FA1BB4F95800B5EB56 /* OneViewController.m */; settings = {ASSET_TAGS = (); }; };
 		B3AFD3261B841C610001172E /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AFD3251B841C610001172E /* LoginController.m */; };
 		B3AFD3291B841C8A0001172E /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AFD3281B841C8A0001172E /* HomeViewController.m */; };
 		B3AFD32C1B841CE10001172E /* Userinfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AFD32B1B841CE10001172E /* Userinfo.m */; };
@@ -376,8 +376,6 @@
 		05FE7E891B848E49006D1C69 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		05FE7E8A1B848E64006D1C69 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseViewController.h; path = UI/BaseViewController.h; sourceTree = "<group>"; };
 		05FE7E8B1B848E64006D1C69 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseViewController.m; path = UI/BaseViewController.m; sourceTree = "<group>"; };
-		05FE7E8C1B848E64006D1C69 /* OneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OneViewController.h; path = UI/OneViewController.h; sourceTree = "<group>"; };
-		05FE7E8D1B848E64006D1C69 /* OneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OneViewController.m; path = UI/OneViewController.m; sourceTree = "<group>"; };
 		05FE7E8E1B848E64006D1C69 /* TwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TwoViewController.h; path = UI/TwoViewController.h; sourceTree = "<group>"; };
 		05FE7E8F1B848E64006D1C69 /* TwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TwoViewController.m; path = UI/TwoViewController.m; sourceTree = "<group>"; };
 		05FE8CC91B9E8ADE00698F24 /* iconfont-refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iconfont-refresh.png"; path = "BestKeep/Images.xcassets/iconfont-refresh.png"; sourceTree = SOURCE_ROOT; };
@@ -541,6 +539,8 @@
 		67D38DEA1BB283C4004A2DBF /* InterfaceURLs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InterfaceURLs.m; path = BestKeep/Common/InterfaceURLs.m; sourceTree = SOURCE_ROOT; };
 		67F365481BB155390042BBC9 /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
 		67F365491BB155390042BBC9 /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
+		67FD67F91BB4F95800B5EB56 /* OneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OneViewController.h; path = BestKeep/UI/OneViewController.h; sourceTree = SOURCE_ROOT; };
+		67FD67FA1BB4F95800B5EB56 /* OneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OneViewController.m; path = BestKeep/UI/OneViewController.m; sourceTree = SOURCE_ROOT; };
 		B3AFD3241B841C610001172E /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginController.h; path = UI/LoginController.h; sourceTree = "<group>"; };
 		B3AFD3251B841C610001172E /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginController.m; path = UI/LoginController.m; sourceTree = "<group>"; };
 		B3AFD3271B841C8A0001172E /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = UI/HomeViewController.h; sourceTree = "<group>"; };
@@ -1014,8 +1014,8 @@
 				05FE7E8B1B848E64006D1C69 /* BaseViewController.m */,
 				EA6E24111B933D56002031D1 /* OneAnotherController.h */,
 				EA6E24121B933D56002031D1 /* OneAnotherController.m */,
-				05FE7E8C1B848E64006D1C69 /* OneViewController.h */,
-				05FE7E8D1B848E64006D1C69 /* OneViewController.m */,
+				67FD67F91BB4F95800B5EB56 /* OneViewController.h */,
+				67FD67FA1BB4F95800B5EB56 /* OneViewController.m */,
 				05FE7E8E1B848E64006D1C69 /* TwoViewController.h */,
 				05FE7E8F1B848E64006D1C69 /* TwoViewController.m */,
 				05FE7E461B848A22006D1C69 /* BKNavigationController.h */,
@@ -2010,7 +2010,6 @@
 				05FA16FC1B90705500A7B0C4 /* CashierDeskController.m in Sources */,
 				05FA16FD1B90705500A7B0C4 /* PayTypeCell.m in Sources */,
 				EA9B0A131B9189F7000E948B /* CashDeskService.m in Sources */,
-				05FE7E911B848E64006D1C69 /* OneViewController.m in Sources */,
 				05FE8CCD1B9EA02D00698F24 /* RechargeController.m in Sources */,
 				05FA16F11B90700800A7B0C4 /* cellDataView.m in Sources */,
 				6767441D1B8EB592007C2832 /* AllOrderCell.m in Sources */,
@@ -2041,6 +2040,7 @@
 				B3AFD3511B841FF30001172E /* Common.m in Sources */,
 				676744211B8EB592007C2832 /* TwoCell.m in Sources */,
 				B3AFD39C1B8422DC0001172E /* SBJsonStreamParserAdapter.m in Sources */,
+				67FD67FB1BB4F95800B5EB56 /* OneViewController.m in Sources */,
 				B3AFD36F1B84210D0001172E /* MASViewConstraint.m in Sources */,
 				B3AFD3DF1B8470DD0001172E /* DataTransform.m in Sources */,
 				05FA16C51B906F7600A7B0C4 /* AreaService.m in Sources */,
