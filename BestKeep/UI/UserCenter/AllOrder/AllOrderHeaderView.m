@@ -10,10 +10,6 @@
 
 @interface AllOrderHeaderView ()
 
-//@property (nonatomic,strong) UILabel * addressLabel;
-//@property (nonatomic,strong) UILabel * orderNoLabel;
-//@property (nonatomic,strong) UILabel * orderStatuLabel;
-
 @property(nonatomic,strong) UIView *view1;
 
 @property(nonatomic,strong) UILabel *addressLabel;
