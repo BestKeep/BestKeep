@@ -111,8 +111,13 @@
 
 -(void)reloadWebView{
 
-    [_webView2 addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew| NSKeyValueObservingOptionOld context:nil];
+//    [_webView2 addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew| NSKeyValueObservingOptionOld context:nil];
     [_webView2 loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.oneAnotherRequest]]];
+    [_webView2 mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view.mas_top);
+        make.bottom.equalTo(self.view.mas_bottom);
+//        make.height.mas_equalTo([UIScreen mainScreen].bounds.size.height - 49);
+    }];
 
 }
 
@@ -175,22 +180,32 @@
 //wkwebview == webview didFinishLoad
 -(void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
     [_progressView setProgress:0.0 animated:false];
-    [webView.scrollView headerEndRefreshing];
     //[messageView removeFromSuperview];
 
     if (self.oneAnotherUrl ==nil || [self.oneAnotherUrl isEqualToString:@""]) {
         
-        [_webView2 evaluateJavaScript:@"OBJC.executeJs(\"init\",\"{}\")" completionHandler:nil];
+        [_webView2 evaluateJavaScript:@"OBJC.executeJs(\"init\",\"{}\")" completionHandler:^(id _Nullable obj, NSError * _Nullable error) {
+            if ([webView.scrollView isHeaderRefreshing]) {
+                [webView.scrollView headerEndRefreshing];
+
+            }
+
+        }];
         
     }else{
-        [_webView2 evaluateJavaScript:self.oneAnotherUrl completionHandler:nil];
+        [_webView2 evaluateJavaScript:self.oneAnotherUrl completionHandler:^(id _Nullable obj, NSError * _Nullable error) {
+            if ([webView.scrollView isHeaderRefreshing]) {
+                [webView.scrollView headerEndRefreshing];
+                
+            }
+        }];
     }
+
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView {
     //html加载完后触发
     //[messageView removeFromSuperview];
-    [webView.scrollView headerEndRefreshing];
     if (self.oneAnotherUrl ==nil || [self.oneAnotherUrl isEqualToString:@""]) {
         [self.webView stringByEvaluatingJavaScriptFromString: @"OBJC.executeJs(\"init\",\"{}\")"];
     }else{
@@ -449,13 +464,17 @@
 //加载失败
 - (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(WKNavigation *)navigation withError:(NSError *)error {
     
-    [webView.scrollView headerEndRefreshing];
-    
+    if ([webView.scrollView isHeaderRefreshing]) {
+        [webView.scrollView headerEndRefreshing];
+        
+    }
 }
 
 -(void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error{
-    [webView.scrollView headerEndRefreshing];
-
+    if ([webView.scrollView isHeaderRefreshing]) {
+        [webView.scrollView headerEndRefreshing];
+        
+    }
 }
 
 //等同于 = webview shouldStartLoadWithRequest:navigation

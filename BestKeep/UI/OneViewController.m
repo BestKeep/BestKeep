@@ -132,7 +132,7 @@
     [self.webView loadRequest:request];
 }
 -(void)reloadWebView{
-    [_webView1 addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew| NSKeyValueObservingOptionOld context:nil];
+//    [_webView1 addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew| NSKeyValueObservingOptionOld context:nil];
     [_webView1 loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.oneRequest]]];
 
 }
@@ -207,15 +207,7 @@
 -(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
 
     [webView.scrollView headerEndRefreshing];
-    //
-//    messageView = [UTMessageView showEmptyMsgViewTo:self.view logoLabelText:@"\U0000e606" emptyText:@"加载失败~" buttonTitle:@"重新加载" animationed:YES];
-//   
-//    [messageView setRetryBlock:^{
-//        //[messageView removeFromSuperview];
-//        NSURL *url =[[NSURL alloc]initWithString:_oneRequest];
-//        NSURLRequest *request =[[NSURLRequest alloc]initWithURL:url];
-//        [self.webView loadRequest:request];
-//     }];
+
 }
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
@@ -471,14 +463,25 @@
   
         if (self.oneUrl ==nil || [self.oneUrl isEqualToString:@""]) {
            
-            [_webView1 evaluateJavaScript:@"OBJC.executeJs(\"init\",\"{}\")" completionHandler:nil];
+            [_webView1 evaluateJavaScript:@"OBJC.executeJs(\"init\",\"{}\")" completionHandler:^(id _Nullable obj, NSError * _Nullable error) {
+                if (webView.scrollView.isHeaderRefreshing) {
+                    [webView.scrollView headerEndRefreshing];
+
+                }
+
+            }];
 
         }else{
-           [_webView1 evaluateJavaScript:self.oneUrl completionHandler:nil];
+           [_webView1 evaluateJavaScript:self.oneUrl completionHandler:^(id _Nullable obj, NSError * _Nullable error) {
+               if (webView.scrollView.isHeaderRefreshing) {
+                   [webView.scrollView headerEndRefreshing];
+                   
+               }
+
+           }];
  
             
         }
-    [webView.scrollView headerEndRefreshing];
 }
 
 //等同于 = webview shouldStartLoadWithRequest:navigation
@@ -727,7 +730,10 @@
 - (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(WKNavigation *)navigation withError:(NSError *)error {
     
 
-    [webView.scrollView headerEndRefreshing];
+    if (webView.scrollView.isHeaderRefreshing) {
+        [webView.scrollView headerEndRefreshing];
+        
+    }
 
 
 }
@@ -736,7 +742,10 @@
     if (error) {
         
     }
-    [webView.scrollView headerEndRefreshing];
+    if (webView.scrollView.isHeaderRefreshing) {
+        [webView.scrollView headerEndRefreshing];
+        
+    }
 
 }
 
