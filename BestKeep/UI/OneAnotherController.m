@@ -57,6 +57,7 @@
         [self.view addSubview:self.webView];
         [self.webView.scrollView addHeaderWithTarget:self action:@selector(refreshWebView)];
         self.webView.delegate = self;
+        self.webView.scrollView.directionalLockEnabled = NO;
         [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.view. mas_left).offset(0);
             make.top.equalTo(self.view.mas_top).mas_offset(0);
@@ -68,6 +69,7 @@
   
     _webView2 = [[WKWebView alloc]initWithFrame:CGRectZero];
     _webView2.UIDelegate =self;
+        _webView2.scrollView.directionalLockEnabled = NO;
     _webView2.navigationDelegate=self;
     [self.view addSubview:_webView2];
         
