@@ -324,7 +324,7 @@
             NSDictionary * dict = [responseObject objectForKey:@"data"];
             NSString *msg = [responseObject objectForKey:@"msg"];
             if ([[responseObject objectForKey:@"success"] boolValue]) {
-                [Userinfo setVisitor_code:[dict objectForKey:@"visitor_code"]];
+//                [Userinfo setVisitor_code:[dict objectForKey:@"visitor_code"]];
                 [CacheFile WriteToFileWithDict:dict];
                 
                 UserInfoModel * userInfo = [[UserInfoModel alloc] initWithDictionary:dict];

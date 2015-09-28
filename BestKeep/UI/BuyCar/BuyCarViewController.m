@@ -23,17 +23,14 @@
 
 @property (nonatomic,strong) NSMutableArray * dataSource;
 
-@property (nonatomic,strong) NSMutableArray * sectionHeaderViewArray;
+//@property (nonatomic,strong) NSMutableArray * sectionHeaderViewArray;
 
 @end
 
 @implementation BuyCarViewController
 {
 
-    NSMutableArray* addBtnArry;   //加号按钮的控件数组
-    NSMutableArray* reduceBtnArry; //减号按钮的控件数组
-    NSMutableArray* lineArray;
-    
+      
     superShopping *superSH;
     
      NSMutableArray *global_Array;
@@ -52,8 +49,10 @@
     self.title = @"购物车";
     [self setCancelButton];
     self.view.backgroundColor = RgbColor(223, 223, 223);
+    [self initView];
+
     
-    }
+}
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.dataSource = [[NSMutableArray alloc] init];
@@ -63,14 +62,12 @@
     if (app.isLogin) {
         [self getDataWithRequest];
         [self shoopCartList];
-        [self initView];
-        [_buyCarTableView reloadData];
 
     }
     else{
-//        LoginController *loginVC = [[LoginController alloc]init];
-//        BKNavigationController *nv = [[BKNavigationController  alloc] initWithRootViewController:loginVC];
-//        [self presentViewController:nv animated:YES completion:nil];
+        LoginController *loginVC = [[LoginController alloc]init];
+        BKNavigationController *nv = [[BKNavigationController  alloc] initWithRootViewController:loginVC];
+        [self presentViewController:nv animated:YES completion:nil];
     }
 }
 #pragma mark -- 请求相关
@@ -110,7 +107,7 @@
         }else{
             _footerAccountView.hidden = NO;
         }
-        [self createHeaderView];
+//        [self createHeaderView];
         [_buyCarTableView reloadData];
     } view:nil];
 }
@@ -178,16 +175,16 @@
 }
 
 #pragma mark -- 创建控件相关
--(void)createHeaderView{
-    self.sectionHeaderViewArray = [[NSMutableArray alloc] init];
-    
-    for (int i = 0; i<self.dataSource.count; i++) {
-        BuyCarSectionView * sectionView =[[BuyCarSectionView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 50)];
-        sectionView.sectionImageView.hidden = YES;
-        sectionView.sectionDelegate = self;
-        [self.sectionHeaderViewArray addObject:sectionView];
-    }
-}
+//-(void)createHeaderView{
+//    self.sectionHeaderViewArray = [[NSMutableArray alloc] init];
+//    
+//    for (int i = 0; i<self.dataSource.count; i++) {
+//        BuyCarSectionView * sectionView =[[BuyCarSectionView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 50)];
+//        sectionView.sectionImageView.hidden = YES;
+//        sectionView.sectionDelegate = self;
+//        [self.sectionHeaderViewArray addObject:sectionView];
+//    }
+//}
 
 - (void)initView
 {
@@ -244,16 +241,16 @@
         NSMutableArray * allChangeOrdeArr = [self getAllOrderIsChangeOrder];
         [self changeOrderWithArray:allChangeOrdeArr];
         
-        for (BuyCarSectionView * sectionView in self.sectionHeaderViewArray) {
-            sectionView.sectionEdit.hidden = NO;
-            sectionView.sectionLine.hidden = NO;
-        }
+//        for (BuyCarSectionView * sectionView in self.sectionHeaderViewArray) {
+//            sectionView.sectionEdit.hidden = NO;
+//            sectionView.sectionLine.hidden = NO;
+//        }
         
     }else{
-        for (BuyCarSectionView * sectionView in self.sectionHeaderViewArray) {
-            sectionView.sectionEdit.hidden = YES;
-            sectionView.sectionLine.hidden = YES;
-        }
+//        for (BuyCarSectionView * sectionView in self.sectionHeaderViewArray) {
+//            sectionView.sectionEdit.hidden = YES;
+//            sectionView.sectionLine.hidden = YES;
+//        }
         
     }
     [self setAllEditStatus:testButton.selected];
@@ -296,13 +293,18 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    if (self.sectionHeaderViewArray.count) {
-        
-    }else{
-        return nil;
+//    if (self.sectionHeaderViewArray.count) {
+//        
+//    }else{
+//        return nil;
+//    }
+
+    BuyCarSectionView * sectionView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"buyCarHeaderView"];
+
+    if (sectionView == nil) {
+        sectionView = [[BuyCarSectionView alloc] initWithReuseIdentifier:@"buyCarHeaderView"];
     }
     
-    BuyCarSectionView * sectionView = [self.sectionHeaderViewArray objectAtIndex:section];
     superShopping* shopList1 = [self.dataSource objectAtIndex:section];
     if (shopList1.global_status1 == 1) {
         sectionView.sectionImageView.hidden = NO;

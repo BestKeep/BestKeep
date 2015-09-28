@@ -10,6 +10,9 @@
 
 @implementation GoodsModel
 
+
+
+
 @end
 
 @implementation CollectionGoodsModel
@@ -20,4 +23,13 @@
     NSInteger memberPrice = [self.member_price integerValue];
     return [NSString stringWithFormat:@"以降%ld元",(long)(markPrice - memberPrice)];
 }
+@end
+
+
+@implementation BuyCarGoodsModel
+
+-(void)setUnKonwnValueKeyWithDict:(NSDictionary *)unKonwnDict{
+    self.ID = [unKonwnDict objectForKey:@"id"];
+}
+
 @end

@@ -131,7 +131,9 @@
     [super viewWillAppear:YES];
      [[AFHTTPRequestOperationManager manager].operationQueue cancelAllOperations];
     app = [[UIApplication sharedApplication] delegate];
-    self.invit = [Userinfo getVisitor_code];
+    NSDictionary * dict  =[CacheFile loadLocalUserFile];
+    NSString * invite = [dict objectForKey:@"visitor_code"];
+    self.invit = invite;
     self.isLogin = app.isLogin;
     //messageView.hidden = YES;
 //    self.isLogin = app.isLogin;

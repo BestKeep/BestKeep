@@ -26,6 +26,9 @@
 @property (nonatomic,copy) NSString * goods_img_small;
 @property (nonatomic,copy) NSString * goods_img_big;
 @property (nonatomic,copy) NSString * total_amount;
+@property (nonatomic,copy) NSString * global_status;
+@property (nonatomic,copy) NSString * goods_reserve_id;
+
 
 @property (nonatomic,assign) BOOL isSelected;
 
@@ -37,7 +40,6 @@
 
 @property (nonatomic,copy) NSString * collect_id;
 
-
 /**
  *  获得价格差
  *
@@ -47,3 +49,15 @@
 -(NSString *)getPriceBalance;
 
 @end
+
+@interface BuyCarGoodsModel : GoodsModel
+
+/**
+ *  购物车纪录id
+ */
+@property (nonatomic,copy) NSString * ID;
+
+@end
+
+
+

@@ -23,85 +23,50 @@
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *plistPath = [documentsDirectory stringByAppendingPathComponent:@"usercache.plist"];
     NSLog(@"%@",plistPath);
-
+    NSFileManager * fm = [NSFileManager defaultManager];
     
-    //判断是否以创建文件
-    if ([[NSFileManager defaultManager] fileExistsAtPath:plistPath])
-    {
-        /*
-         注意：此方法更新和写入是共用的
-         */
-        NSString *st;
-        if ([Userinfo getST]==nil) {
-            st = @"";
-        }else{
-            st = [Userinfo getST];
-        }
+    if ([fm fileExistsAtPath:plistPath]) {
         
-        NSMutableDictionary *data = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                              
-                              [Userinfo getCellPhone],@"account",
-                              
-                              [Userinfo getLoginSatuts],@"loginstatus",
-                              st,@"st",
-                              [Userinfo getUserTGT],@"tgt",
-                              [Userinfo getVisitor_code],@"visitor_code",
-                              [Userinfo getUserid],@"userid",
-                              
-                              nil];
-        
-        [dict enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-            [data setObject:obj forKey:key];
-        }];
-        
-        //写入文件
-        
-        NSFileManager *fm = [NSFileManager defaultManager];
-        
+    }else{
         [fm createFileAtPath:plistPath contents:nil attributes:nil];
-        
-        [data writeToFile:plistPath atomically:YES];
-        
-        NSLog(@"文件已存在:%@",data);
-    }
-    else
-    {
-        //        NSString *photo = [NSString stringWithFormat:@"%@%@", strUtouu,[dicLogin objectForKey:@"pictureurl"]];
-        //如果没有plist文件就自动创建
-        
-        
-        NSString *st;
-        if ([Userinfo getST]==nil) {
-            st = @"";
-        }else{
-            st = [Userinfo getST];
-        }
-        NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:
-                              
-                              st,@"st",
-                              [Userinfo getPWD],@"pwd",
-                              
-                              [Userinfo getCellPhone],@"account",
-                              
-                              [Userinfo getLoginSatuts],@"loginstatus",
-                              
-                              [Userinfo getUserTGT],@"tgt",
-                              [Userinfo getVisitor_code],@"visitor_code",
-                              [Userinfo getUserid],@"userid",
-                              
-                              
 
-                              nil];
-        
-        //写入文件
-        
-        NSFileManager *fm = [NSFileManager defaultManager];
-        
-        [fm createFileAtPath:plistPath contents:nil attributes:nil];
-        
-        [data writeToFile:plistPath atomically:YES];
-        NSLog(@"写入data:%@",data);
     }
+    
+    NSString *st;
+    if ([Userinfo getST]==nil) {
+        st = @"";
+    }else{
+        st = [Userinfo getST];
+    }
+    
+    NSMutableDictionary *data = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                 
+                                 [Userinfo getCellPhone],@"account",
+                                 
+                                 [Userinfo getLoginSatuts],@"loginstatus",
+                                 st,@"st",
+                                 [Userinfo getUserTGT],@"tgt",
+                                 [Userinfo getVisitor_code],@"visitor_code",
+                                 [Userinfo getUserid],@"userid",
+                                 
+                                 nil];
+    
+    for (NSString *key in dict.allKeys) {
+        [data setObject:[dict objectForKey:key] forKey:key];
+    }
+    
+    //写入文件
+    
+//    BOOL sucess = [fm createFileAtPath:plistPath contents:nil attributes:nil];
+    
+    BOOL sucess = [data writeToFile:plistPath atomically:YES];
+    if (sucess) {
+        NSLog(@"写入缓存成功");
+    }else{
+        NSLog(@"写入缓存失败");
+    }
+    NSLog(@"文件已存在:%@",data);
+
 }
 
 

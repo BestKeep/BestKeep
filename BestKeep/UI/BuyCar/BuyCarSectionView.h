@@ -16,7 +16,7 @@
 @end
 
 
-@interface BuyCarSectionView : UIView  //购物车每组的头部加载view
+@interface BuyCarSectionView : UITableViewHeaderFooterView  //购物车每组的头部加载view
 
 @property (nonatomic , strong)UIButton* sectionButton; //头部按钮
 @property (nonatomic , strong)UILabel* sectionLabel;   //发货地址
