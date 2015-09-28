@@ -231,7 +231,7 @@
     
     [Common saveUserImage:@""];
     
-    [CacheFile WriteToFileWithDict:nil];
+    [[CacheFile sharedInstance] WriteToFileWithDict:nil];
 }
 
 
@@ -325,7 +325,7 @@
             NSString *msg = [responseObject objectForKey:@"msg"];
             if ([[responseObject objectForKey:@"success"] boolValue]) {
 //                [Userinfo setVisitor_code:[dict objectForKey:@"visitor_code"]];
-                [CacheFile WriteToFileWithDict:dict];
+                [[CacheFile sharedInstance] WriteToFileWithDict:dict];
                 
                 UserInfoModel * userInfo = [[UserInfoModel alloc] initWithDictionary:dict];
                 

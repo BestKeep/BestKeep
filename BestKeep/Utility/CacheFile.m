@@ -16,7 +16,11 @@
 
 @implementation CacheFile
 
-+(void) WriteToFileWithDict:(NSDictionary *)dict
+
+
+
+
+-(void) WriteToFileWithDict:(NSDictionary *)dict
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     //获取完整路径
@@ -61,6 +65,10 @@
     
     BOOL sucess = [data writeToFile:plistPath atomically:YES];
     if (sucess) {
+        
+        CacheFile * fileManager = [CacheFile sharedInstance];
+        fileManager.lastUpdate = [NSDate dateWithTimeIntervalSinceNow:0];
+        
         NSLog(@"写入缓存成功");
     }else{
         NSLog(@"写入缓存失败");
@@ -70,13 +78,20 @@
 }
 
 
-+(NSDictionary *)loadLocalUserFile{
+-(NSDictionary *)loadLocalUserFile{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    
-    //获取完整路径
+
     NSString *documentsDirectory = [paths objectAtIndex:0];
     
     NSString *plistPath = [documentsDirectory stringByAppendingPathComponent:@"usercache.plist"];
+    if (self.isOutDate) {
+        [[NSFileManager defaultManager] removeItemAtPath:plistPath error:nil];
+        [ShowMessage showMessage:@"缓存过期请重新登录"];
+        return nil;
+    }
+    
+    //获取完整路径
+   
     
     
     if ([[NSFileManager defaultManager] fileExistsAtPath:plistPath])
@@ -108,11 +123,25 @@
     
 }
 
++(instancetype)sharedInstance{
+    static CacheFile * file;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        file = [[CacheFile alloc] init];
+    });
+    return file;
+}
 
-//+(BOOL)isOutDate{
-//
-//
-//}
+
+-(BOOL)isOutDate{
+    if (self.lastUpdate) {
+        NSTimeInterval timeInterval = [[NSDate dateWithTimeIntervalSinceNow:0] timeIntervalSinceDate:self.lastUpdate];
+        if (timeInterval > 60*60*24*30) {
+            return YES;
+        }
+    }
+    return NO;
+}
 
 
 @end

@@ -131,7 +131,7 @@
     [super viewWillAppear:YES];
      [[AFHTTPRequestOperationManager manager].operationQueue cancelAllOperations];
     app = [[UIApplication sharedApplication] delegate];
-    NSDictionary * dict  =[CacheFile loadLocalUserFile];
+    NSDictionary * dict  =[[CacheFile sharedInstance] loadLocalUserFile];
     NSString * invite = [dict objectForKey:@"visitor_code"];
     self.invit = invite;
     self.isLogin = app.isLogin;

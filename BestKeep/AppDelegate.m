@@ -24,15 +24,24 @@
 @implementation AppDelegate
 
 -(BOOL)isLogin{
-    NSString * ststus = [Userinfo getLoginSatuts];
-    return [ststus isEqualToString:@"1"];
+    
+    NSDictionary * dcit = [[CacheFile sharedInstance] loadLocalUserFile];
+
+    if (dcit) {
+        return YES;
+    }else{
+        return NO;
+    }
+    
+//    NSString * ststus = [Userinfo getLoginSatuts];
+//    return [ststus isEqualToString:@"1"];
 }
 -(UserInfoModel *)userInfo{
-    NSDictionary * dcit = [CacheFile loadLocalUserFile];
+    NSDictionary * dcit = [[CacheFile sharedInstance] loadLocalUserFile];
     return [[UserInfoModel alloc] initWithDictionary:dcit];
 }
 -(void)loadLocalData{
-    NSDictionary * dict = [CacheFile loadLocalUserFile];
+    NSDictionary * dict = [[CacheFile sharedInstance] loadLocalUserFile];
     if (dict) {
         self.userInfo = [[UserInfoModel alloc] initWithDictionary:dict];
     }else{

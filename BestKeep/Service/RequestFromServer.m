@@ -129,7 +129,7 @@ int count;
                             [Userinfo setLoginSatuts:@"0"];
                             [Userinfo setUserid:@""];
                             [Common saveUserImage:@""];
-                            [CacheFile WriteToFileWithDict:nil];
+                            [[CacheFile sharedInstance] WriteToFileWithDict:nil];
                             if (alertView != nil) {
                                 
                                 if (count == 0) {

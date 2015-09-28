@@ -11,17 +11,19 @@
 
 @interface CacheFile : NSObject
 
-@property (nonatomic ,assign) int updatetime;
+@property (nonatomic ,assign) NSDate *lastUpdate;
 
-+(void) WriteToFileWithDict:(NSDictionary *)dict;
-
-
+-(void) WriteToFileWithDict:(NSDictionary *)dict;
 
 
-+(NSDictionary *)loadLocalUserFile;
 
 
-//+(BOOL)isOutDate;
+-(NSDictionary *)loadLocalUserFile;
+
+
+-(BOOL)isOutDate;
+
++(instancetype)sharedInstance;
 
 
 @end
