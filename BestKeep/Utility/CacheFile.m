@@ -134,12 +134,12 @@
 
 
 -(BOOL)isOutDate{
-    if (self.lastUpdate) {
-        NSTimeInterval timeInterval = [[NSDate dateWithTimeIntervalSinceNow:0] timeIntervalSinceDate:self.lastUpdate];
-        if (timeInterval > 60*60*24*30) {
-            return YES;
-        }
-    }
+//    if (self.lastUpdate) {
+//        NSTimeInterval timeInterval = [[NSDate dateWithTimeIntervalSinceNow:0] timeIntervalSinceDate:self.lastUpdate];
+//        if (timeInterval > 60*60*24*30) {
+//            return YES;
+//        }
+//    }
     return NO;
 }
 
