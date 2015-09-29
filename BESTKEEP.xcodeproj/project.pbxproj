@@ -76,6 +76,11 @@
 		05FEADB81B9D52BE0001617B /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 05FEADB61B9D52BE0001617B /* Icon.png */; };
 		05FEADB91B9D52BE0001617B /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05FEADB71B9D52BE0001617B /* Icon@2x.png */; };
 		05FEADBC1B9D98110001617B /* ShowDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FEADBB1B9D98110001617B /* ShowDetailController.m */; };
+		6728E79F1BBA488E003FB58F /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6728E7951BBA488E003FB58F /* FMDatabase.m */; settings = {ASSET_TAGS = (); }; };
+		6728E7A01BBA488E003FB58F /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6728E7971BBA488E003FB58F /* FMDatabaseAdditions.m */; settings = {ASSET_TAGS = (); }; };
+		6728E7A11BBA488E003FB58F /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6728E7991BBA488E003FB58F /* FMDatabasePool.m */; settings = {ASSET_TAGS = (); }; };
+		6728E7A21BBA488E003FB58F /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6728E79B1BBA488E003FB58F /* FMDatabaseQueue.m */; settings = {ASSET_TAGS = (); }; };
+		6728E7A31BBA488E003FB58F /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6728E79E1BBA488E003FB58F /* FMResultSet.m */; settings = {ASSET_TAGS = (); }; };
 		6767441B1B8EB592007C2832 /* AddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 676744021B8EB592007C2832 /* AddressCell.m */; };
 		6767441C1B8EB592007C2832 /* ShopingAddressController.m in Sources */ = {isa = PBXBuildFile; fileRef = 676744041B8EB592007C2832 /* ShopingAddressController.m */; };
 		6767441D1B8EB592007C2832 /* AllOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 676744071B8EB592007C2832 /* AllOrderCell.m */; };
@@ -380,6 +385,17 @@
 		05FEADB71B9D52BE0001617B /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "BestKeep/Icon@2x.png"; sourceTree = SOURCE_ROOT; };
 		05FEADBA1B9D98110001617B /* ShowDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowDetailController.h; sourceTree = "<group>"; };
 		05FEADBB1B9D98110001617B /* ShowDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowDetailController.m; sourceTree = "<group>"; };
+		6728E7941BBA488E003FB58F /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		6728E7951BBA488E003FB58F /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		6728E7961BBA488E003FB58F /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		6728E7971BBA488E003FB58F /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		6728E7981BBA488E003FB58F /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		6728E7991BBA488E003FB58F /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		6728E79A1BBA488E003FB58F /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		6728E79B1BBA488E003FB58F /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		6728E79C1BBA488E003FB58F /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		6728E79D1BBA488E003FB58F /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		6728E79E1BBA488E003FB58F /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		676744011B8EB592007C2832 /* AddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressCell.h; sourceTree = "<group>"; };
 		676744021B8EB592007C2832 /* AddressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressCell.m; sourceTree = "<group>"; };
 		676744031B8EB592007C2832 /* ShopingAddressController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopingAddressController.h; sourceTree = "<group>"; };
@@ -935,6 +951,7 @@
 		05F9C2801B82C1E1009712BB /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				6728E7931BBA488E003FB58F /* fmdb */,
 				678045A31BAAC6C500A03131 /* aliPay */,
 				05DCFD1F1BA93D08001E0703 /* ASIHTTPRequest */,
 				EA55517F1B9603570096E82D /* IDSign */,
@@ -1101,6 +1118,25 @@
 			name = WebView;
 			path = UI/WebView;
 			sourceTree = "<group>";
+		};
+		6728E7931BBA488E003FB58F /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				6728E7941BBA488E003FB58F /* FMDatabase.h */,
+				6728E7951BBA488E003FB58F /* FMDatabase.m */,
+				6728E7961BBA488E003FB58F /* FMDatabaseAdditions.h */,
+				6728E7971BBA488E003FB58F /* FMDatabaseAdditions.m */,
+				6728E7981BBA488E003FB58F /* FMDatabasePool.h */,
+				6728E7991BBA488E003FB58F /* FMDatabasePool.m */,
+				6728E79A1BBA488E003FB58F /* FMDatabaseQueue.h */,
+				6728E79B1BBA488E003FB58F /* FMDatabaseQueue.m */,
+				6728E79C1BBA488E003FB58F /* FMDB.h */,
+				6728E79D1BBA488E003FB58F /* FMResultSet.h */,
+				6728E79E1BBA488E003FB58F /* FMResultSet.m */,
+			);
+			name = fmdb;
+			path = BestKeep/Utility/fmdb;
+			sourceTree = SOURCE_ROOT;
 		};
 		676744001B8EB592007C2832 /* AddressManager */ = {
 			isa = PBXGroup;
@@ -1774,6 +1810,7 @@
 				EA9B0A681B918CB7000E948B /* SDWebImageDecoder.m in Sources */,
 				B3AFD3701B84210D0001172E /* NSArray+MASAdditions.m in Sources */,
 				67D38DE81BB2402E004A2DBF /* PassportService.m in Sources */,
+				6728E7A21BBA488E003FB58F /* FMDatabaseQueue.m in Sources */,
 				EA6E24001B91D7F2002031D1 /* MySaveFooterView.m in Sources */,
 				676744281B8EB5AA007C2832 /* UserCenterDefaultCell.m in Sources */,
 				052F3D231B857EAC0069A7B9 /* ConfirmationIndentViewController.m in Sources */,
@@ -1815,6 +1852,7 @@
 				05F9C2971B82C2C8009712BB /* AFHTTPRequestOperation.m in Sources */,
 				05F9C29F1B82C2C8009712BB /* AFURLSessionManager.m in Sources */,
 				B3AFD3261B841C610001172E /* LoginController.m in Sources */,
+				6728E79F1BBA488E003FB58F /* FMDatabase.m in Sources */,
 				EA5551281B9588B10096E82D /* MJRefreshFooterView.m in Sources */,
 				6780460D1BAAC6C500A03131 /* AliPayResultManager.m in Sources */,
 				B3AFD37C1B8422840001172E /* NSString+CJCategory.m in Sources */,
@@ -1854,6 +1892,7 @@
 				05FE7E901B848E64006D1C69 /* BaseViewController.m in Sources */,
 				05DCFD381BA93D08001E0703 /* ASIFormDataRequest.m in Sources */,
 				6767442E1B8EB62F007C2832 /* StrokeView.m in Sources */,
+				6728E7A11BBA488E003FB58F /* FMDatabasePool.m in Sources */,
 				05DCFD371BA93D08001E0703 /* ASIDownloadCache.m in Sources */,
 				EA9B0A6F1B918CB7000E948B /* UIImage+MultiFormat.m in Sources */,
 				05DCFD341BA93D08001E0703 /* ASIAuthenticationDialog.m in Sources */,
@@ -1879,6 +1918,7 @@
 				EA55512C1B9588B10096E82D /* UIView+MJExtension.m in Sources */,
 				B3AFD3371B841DC00001172E /* HCRKeyChain.m in Sources */,
 				05FA171B1B9070DC00A7B0C4 /* AddTextCell.m in Sources */,
+				6728E7A31BBA488E003FB58F /* FMResultSet.m in Sources */,
 				EACB5A131B86D35D0091D4F5 /* UserCentrerBaseCell.m in Sources */,
 				6767442F1B8EB62F007C2832 /* StrokeViewManager.m in Sources */,
 				B3AFD3DC1B8470DD0001172E /* CXAlertView.m in Sources */,
@@ -1907,6 +1947,7 @@
 				B3AFD3E01B8470DD0001172E /* ManagerSetting.m in Sources */,
 				05FA16D51B906FB300A7B0C4 /* BaseObject.m in Sources */,
 				05F9C29A1B82C2C8009712BB /* AFNetworkReachabilityManager.m in Sources */,
+				6728E7A01BBA488E003FB58F /* FMDatabaseAdditions.m in Sources */,
 				B3AFD3C51B8470250001172E /* NJKWebViewProgress.m in Sources */,
 				05FEADBC1B9D98110001617B /* ShowDetailController.m in Sources */,
 				05F9C25C1B82C1A3009712BB /* main.m in Sources */,
