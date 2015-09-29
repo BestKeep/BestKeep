@@ -57,20 +57,7 @@
 
 
 +(NSString *)getAliPayOrder:(NSString *)orderInfo{
-//    NSDictionary * infoDict = [[NSBundle mainBundle] infoDictionary];
-//    NSString * privateKey = [infoDict objectForKey:@"privateKey"];
-//    
-//    id<DataSigner> signer = CreateRSADataSigner(privateKey);
-//    NSString *signedString = [signer signString:orderInfo];
-//    
-//    将签名成功字符串格式化为订单字符串,请严格按照该格式
-//        NSString *orderString = nil;
-//    if (signedString != nil) {
-//                orderString = [NSString stringWithFormat:@"%@&sign=\"%@\"&sign_type=\"%@\"",
-//                               orderInfo, signedString, @"RSA"];
-//        
-//    }
-//        return orderString;
+
     return orderInfo;
 }
 

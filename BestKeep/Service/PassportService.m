@@ -31,7 +31,6 @@
 //#import "IDCardsInfo.h"
 
 #import <AlipaySDK/AlipaySDK.h>
-#import "DataSigner.h"
 #import "AliPayResultManager.h"
 
 @implementation PassportService
