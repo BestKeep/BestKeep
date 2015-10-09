@@ -183,18 +183,66 @@ static NSSet *foundationClasses_;
 
 @implementation BaseObject (PropertyDcitionary)
 
--(NSDictionary *)getPropertyDictionary{
+-(NSMutableDictionary *)getPropertyDictionary{
     NSMutableDictionary * propertyDcit = [[NSMutableDictionary alloc] init];
-    unsigned int outCount;
-    objc_property_t * properties = class_copyPropertyList([self class], &outCount);
-    for (int i = 0; i<outCount; i++) {
-        objc_property_t property = properties[i];
-        NSString * propertyName = [NSString stringWithUTF8String:property_getName(property)];
-        id value = [self valueForKey:propertyName];
-        [propertyDcit setObject:value forKey:propertyName];
-    }
-    return propertyDcit;
+    
+    [self propertyContainer:propertyDcit objectWithClassDecider:^BOOL(__unsafe_unretained Class tmpClass, BOOL *stop) {
+
+        if (tmpClass == [NSObject class]) {
+            *stop = YES;
+            return NO;
+        }
+        return YES;
+        
+    }];
+    
+    
+       return propertyDcit;
 }
+
+- (void)propertyContainer:(id)container objectWithClassDecider:(BOOL(^)(Class tmpClass, BOOL *stop))classDecider{
+
+    Class tempClass = [self class];
+    
+    while (tempClass) {
+        
+        if(classDecider)
+        {
+            BOOL stop = NO;
+            while(tempClass && !classDecider(tempClass, &stop))
+            {
+                tempClass = class_getSuperclass(tempClass);
+            }
+            if(stop)
+            {
+                break;
+            }
+        }
+
+        unsigned int outCount;
+        objc_property_t * properties = class_copyPropertyList([self class], &outCount);
+        for (int i = 0; i<outCount; i++) {
+            objc_property_t property = properties[i];
+            NSString * propertyName = [NSString stringWithUTF8String:property_getName(property)];
+            id value = [self valueForKey:propertyName];
+            
+            if ([container respondsToSelector:@selector(setObject:forKey:)]) {
+                [container setObject:value forKey:propertyName];
+            }
+            
+        }
+        
+        tempClass = class_getSuperclass(tempClass);
+
+        
+    }
+    
+}
+
+
+
+
+
 
 @end
 

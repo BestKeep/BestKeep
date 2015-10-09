@@ -48,7 +48,7 @@
  *
  *  @return 属性字典
  */
--(NSDictionary *)getPropertyDictionary;
+-(NSMutableDictionary *)getPropertyDictionary;
 
 @end
 
